@@ -57,6 +57,28 @@ for eg: <a href="www.google.com">Google</a>
     - Block: Covers the full width
     - Inline: Covers required content width
 6. Table
+    - table
+    - tr
+    - th
+    - td
+    - thead,tbody,tfoot
+    - rowspan,colspan
 7. Forms
+    - input:text
+    - input:number
+    - input:email
+    - input:password
+    - input:tel
+    - input:date
+    - input:time
+    - input:range
+    - input:color
+    - input:file
+    - input:radio
+    - input:checkbox
+    - select, option
+    - textarea
+    - form
+    - attributes: type, name, id, for, checked, min, max, minlength, required, placeholder, value, selected, disabled
 8. Embedding
 9. Semantic elements

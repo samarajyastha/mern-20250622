@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Table</title>
+
+    <style>
+      table {
+        border: 1px solid;
+      }
+
+      td,
+      th {
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Address</th>
+          <th colspan="2">Phone</th>
+          <th>Province</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Ram</td>
+          <td>20</td>
+          <td>Dharan</td>
+          <td>9876542002</td>
+          <td>9876542002</td>
+          <td rowspan="3">Koshi</td>
+        </tr>
+
+        <tr>
+          <td>Ramesh</td>
+          <td>36</td>
+          <td>Itahari</td>
+          <td>9876542002</td>
+          <td>9876542002</td>
+        </tr>
+
+        <tr>
+          <td>Sita</td>
+          <td>15</td>
+          <td>Biratnagar</td>
+          <td>9876542002</td>
+          <td>9876542002</td>
+        </tr>
+
+        <tr>
+          <td>Hari</td>
+          <td>59</td>
+          <td>Kathmandu</td>
+          <td>9876542002</td>
+          <td>9876542002</td>
+          <td rowspan="2">Bagmati</td>
+        </tr>
+
+        <tr>
+          <td>Mohan</td>
+          <td>86</td>
+          <td>Butwal</td>
+          <td>9876542002</td>
+          <td>9876542002</td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td colspan="6">Total: 5</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>
