@@ -124,7 +124,13 @@
 
       <div>
         <label for="file">File</label>
-        <input type="file" id="file" name="file" />
+        <input
+          type="file"
+          id="file"
+          name="file"
+          multiple
+          accept=".png,.jpg,.jpeg,.svg"
+        />
       </div>
 
       <div>
@@ -141,9 +147,27 @@
       </div>
 
       <div>
+        <label for="teachers">Teachers</label>
+        <input type="text" id="teachers" list="teacherList" />
+        <datalist id="teacherList">
+          <option value="Ram Limbu"></option>
+          <option value="Mohan Rao"></option>
+          <option value="Sita Gajmer"></option>
+          <option value="Ayush tamang"></option>
+          <option value="Anil poudel"></option>
+        </datalist>
+      </div>
+
+      <div>
         <label for="message">Message</label>
         <textarea id="message" name="message"></textarea>
       </div>
+
+      <fieldset>
+        <legend>Your contact information</legend>
+        <input type="email" placeholder="Email address" />
+        <input type="tel" name="" id="" placeholder="Phone number" />
+      </fieldset>
 
       <input type="submit" value="Submit" />
     </form>

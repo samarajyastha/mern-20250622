@@ -80,5 +80,32 @@ for eg: <a href="www.google.com">Google</a>
     - textarea
     - form
     - attributes: type, name, id, for, checked, min, max, minlength, required, placeholder, value, selected, disabled
-8. Embedding
+    - fieldset,legend
+8. Embedding - iframe
 9. Semantic elements
+
+## CSS (Cascading style sheet)
+
+Syntax: 
+
+```
+<selector> {
+    property: value;
+    ...
+}
+```
+
+### Selectors
+- Element: element name, less priority
+- Class (mostly used): .<class-name>, more priority than element but less than id
+- Id: #<id-value>, top-priority
+
+### CSS Usage
+- Inline
+- Internal
+- External
+
+Class vs Id
+- Class is an attribute(property) | Id is also attribute.
+- Class can be named multiple times | Id can be named only once.
+- Class is generally used for CSS | Id is generally used for JS.
