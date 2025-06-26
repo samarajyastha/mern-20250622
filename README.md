@@ -109,3 +109,22 @@ Class vs Id
 - Class is an attribute(property) | Id is also attribute.
 - Class can be named multiple times | Id can be named only once.
 - Class is generally used for CSS | Id is generally used for JS.
+
+### Properties
+- color
+- background-color
+- text
+- font
+- box-model
+- display
+- flex
+- list
+- pseudo
+- units (Todo)
+- overflow (Todo)
+- table (Todo)
+- form (Todo)
+- position (Todo)
+- grid (Todo)
+- background (Todo) image
+- animation (Todo)
