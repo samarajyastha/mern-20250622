@@ -1,0 +1,65 @@
+/*
+positions: static, relative, absolute, fixed, sticky
+*/
+
+.box1 {
+  height: 200vh;
+  width: 100%;
+  background-color: aquamarine;
+}
+
+.box2 {
+  height: 300px;
+  width: 300px;
+  background-color: cornflowerblue;
+  position: absolute;
+  right: 20px;
+  bottom: 50px;
+  z-index: 21;
+}
+
+.box3 {
+  height: 200px;
+  width: 200px;
+  background-color: darksalmon;
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  z-index: 20;
+}
+
+.box4 {
+  height: 200px;
+  width: 200px;
+  background-color: indianred;
+  position: sticky;
+  top: 10px;
+  left: 20px;
+  z-index: 10;
+}
+
+header {
+  position: relative;
+}
+
+.nav {
+  height: 200px;
+  width: 100%;
+  background-color: black;
+  position: sticky;
+  top: 0px;
+  z-index: 99;
+}
+
+.bg {
+  width: 100%;
+  height: 500px;
+  background-color: beige;
+  background-image: url(phone.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}

@@ -1,3 +1,6 @@
+html {
+  font-size: 20px;
+}
 /* Color properties  */
 .title {
   color: rgb(100, 100, 100); /* RGB: 0-255 */
@@ -101,4 +104,28 @@ input {
 
 input:disabled {
   background-color: gray;
+}
+
+/* px, rem, em, in, cm, vh, vw*/
+.info {
+  border: 1px solid;
+
+  /* px:pixel */
+  font-size: 20px;
+  /* rem: relative to root */
+  font-size: 1.5rem;
+  /* em: relative to parent */
+  font-size: 3em;
+  background-color: bisque;
+  width: 200px;
+  height: 100px;
+  overflow: auto; /* hidden, auto, visible, scroll */
+}
+
+.info-box {
+  font-size: 10px;
+  /* vh: viewing height */
+  height: 50vh;
+  /* vw: viewing width */
+  width: 50vw;
 }
