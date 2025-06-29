@@ -126,6 +126,8 @@ Class vs Id
 - form
 - position
 - background image
-- gridbox (Todo)
-- transform (Todo)
-- animation (Todo)
+- gridbox
+- icon
+- responsive design
+- transform
+- animation

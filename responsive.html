@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .gridbox {
+        background-color: cadetblue;
+        padding: 1rem;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .content {
+        background-color: burlywood;
+        border: 1px solid black;
+        height: 200px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      /* Tablet device */
+      @media (min-width: 481px) and (max-width: 768px) {
+        .content {
+          background-color: chartreuse;
+        }
+
+        .gridbox {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        h1 {
+          font-size: 4rem;
+        }
+      }
+
+      /* Large Tablet device */
+      @media (min-width: 769px) and (max-width: 1200px) {
+        .content {
+          background-color: deepskyblue;
+        }
+
+        .gridbox {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      /* Laptops  */
+      @media (min-width: 1201px) {
+        .content {
+          background-color: forestgreen;
+        }
+
+        .gridbox {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <div class="gridbox">
+      <div class="content one">content one</div>
+      <div class="content two">content two</div>
+      <div class="content three">content three</div>
+      <div class="content four">content four</div>
+      <div class="content five">content five</div>
+      <div class="content six">content six</div>
+      <div class="content seven">content seven</div>
+      <div class="content eight">content eight</div>
+      <div class="content nine">content nine</div>
+      <div class="content ten">content ten</div>
+    </div>
+  </body>
+</html>
