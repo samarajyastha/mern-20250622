@@ -131,3 +131,8 @@ Class vs Id
 - responsive design
 - transform
 - animation
+
+## Tailwind CSS
+
+- CSS Framework
+- Collection of css classes

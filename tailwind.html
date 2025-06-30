@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <!-- Text size: text-<size> | sm, md, lg, xl, 2xl, 3xl ... -->
+    <h1 class="text-4xl">Hello world</h1>
+
+    <!-- Text align: left, right, center e.g text-center  -->
+    <h1 class="text-center underline">Hello ram</h1>
+
+    <!-- Color: text-<color>-<intensity>  -->
+    <!-- Background: bg-<color>-<intensity> -->
+    <h1 class="text-green-600 bg-green-200">Test color</h1>
+    <span class="text-red-600 bg-red-200">Danger</span>
+
+    <!-- Fonts: bold, semibold, medium -->
+    <h1 class="font-semibold">Font weight</h1>
+
+    <!-- Margin: m -->
+    <h1 class="m-4 bg-green-300">All margin</h1>
+    <!-- Padding: p -->
+    <h1 class="p-5 bg-red-300">All padding</h1>
+    <!-- Top: t -->
+    <span class="pt-5 bg-blue-300">Padding top</span>
+    <!-- Bottom: b -->
+    <span class="pb-5 bg-blue-300">Padding bottom</span>
+    <!-- Left: l -->
+    <span class="pl-5 bg-blue-300">Padding left</span>
+    <div></div>
+    <!-- Right: r  -->
+    <span class="pr-5 bg-yellow-300">Padding Right</span>
+    <!-- Horizontal: x  -->
+    <span class="px-10 bg-black text-white">Padding Horizontal</span>
+    <!-- Vertical: y  -->
+    <div class="py-10 bg-black text-white">Padding Vertical</div>
+
+    <!-- Height: h / Width: w  -->
+    <div class="bg-red-200 w-2/3 h-40">box</div>
+
+    <!-- Display flex  -->
+    <div class="flex justify-evenly items-center h-40 bg-green-300 flex-col">
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+    </div>
+
+    <!-- display hidden  -->
+    <div class="hidden">hidden item</div>
+
+    <!-- display grid -->
+    <div class="grid grid-cols-3">
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+    </div>
+
+    <div
+      class="bg-teal-300 h-50 w-50 m-10 border-2 border-red-500 rounded-xl shadow-xl"
+    ></div>
+
+    <!-- position: relative, absolute, fixed, sticky -->
+    <div class="sticky top-0 right-0 h-20 w-20 bg-slate-800 m-10">x</div>
+
+    <!-- Responsive design: sm, md, lg, xl -->
+    <h1
+      class="m-10 font-semibold text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-7xl"
+    >
+      Responsive text
+    </h1>
+
+    <!-- Responsive display  -->
+    <div class="block lg:hidden">Responsive display</div>
+
+    <div class="text-red-500 sm:text-blue-500 md:text-green-500 lg:text-black">
+      Responsive color
+    </div>
+
+    <div class="text-red-500 dark:text-slate-100 bg-red-200 dark:bg-black">dark mode color</div>
+
+    <div class="h-svh"></div>
+  </body>
+</html>
