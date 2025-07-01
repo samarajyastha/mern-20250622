@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MERN-Ecommerce</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#4f46e5",
+              secondary: "#f43f5e",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+  </head>
+  <body>
+    <header class="shadow sticky top-0 bg-white z-50">
+      <div class="container mx-auto p-4">
+        <div class="flex justify-between items-center">
+          <a href="#" class="text-xl">
+            <div
+              class="flex items-center justify-start font-semibold hover:font-bold w-40"
+            >
+              <span class="text-primary">Shop</span>
+              <span class="text-secondary">Nest</span>
+            </div>
+          </a>
+          <nav class="hidden md:flex gap-3">
+            <a href="#" class="text-sm hover:text-primary">Home</a>
+            <a href="#" class="text-sm hover:text-primary">Products</a>
+            <a href="#" class="text-sm hover:text-primary">Popular</a>
+            <a href="#" class="text-sm hover:text-primary">Categories</a>
+            <a href="#" class="text-sm hover:text-primary">Testimonials</a>
+          </nav>
+
+          <div class="text-secondary">
+            <i class="fa fa-shopping-cart"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero section  -->
+      <section class="py-16 md:py-24 bg-gradient-to-r from-primary/90 to-secondary/90">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-col md:flex-row items-center md:justify-between">
+            <!-- Content  -->
+            <div class="md:w-1/2 mb-10 md:mb-0">
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
+                New Amazing Products
+              </h1>
+              <p class="text-xl mb-8 text-white">
+                Shop today and get
+                <span class="font-semibold">20% discount</span>
+              </p>
+              <div class="flex flex-col md:flex-row gap-y-3 gap-x-5">
+                <a
+                  href="#"
+                  class="font-medium bg-white text-primary px-6 py-3 rounded-lg text-center hover:underline transition shadow-xl"
+                  >Shop Now</a
+                >
+                <a
+                  href="#"
+                  class="border-2 border-white text-white px-6 py-3 rounded-lg text-center hover:underline transition shadow-xl"
+                  >View Categories</a
+                >
+              </div>
+            </div>
+
+            <!-- Image  -->
+            <div class="md:w-1/2">
+              <img src="./assets/images/hero.png" class="max-w-full h-auto rounded-xl shadow-xl lg:w-3/4 float-right" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us section  -->
+      <section></section>
+
+      <!-- Products section  -->
+      <section></section>
+
+      <!-- Popular products section  -->
+      <section></section>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>
