@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -51,12 +51,18 @@
               <span class="text-secondary">Nest</span>
             </div>
           </a>
-          <nav class="hidden md:flex gap-3">
-            <a href="#" class="text-sm hover:text-primary">Home</a>
-            <a href="#" class="text-sm hover:text-primary">Products</a>
-            <a href="#" class="text-sm hover:text-primary">Popular</a>
-            <a href="#" class="text-sm hover:text-primary">Categories</a>
-            <a href="#" class="text-sm hover:text-primary">Testimonials</a>
+          <nav class="hidden md:flex gap-5">
+            <a href="#home" class="text-sm hover:text-primary">Home</a>
+            <a href="#products" class="text-sm hover:text-primary">Products</a>
+            <a href="#popular-products" class="text-sm hover:text-primary"
+              >Popular</a
+            >
+            <a href="#categories" class="text-sm hover:text-primary"
+              >Categories</a
+            >
+            <a href="#testimonials" class="text-sm hover:text-primary"
+              >Testimonials</a
+            >
           </nav>
 
           <div class="text-secondary">
@@ -68,12 +74,19 @@
 
     <main>
       <!-- Hero section  -->
-      <section class="py-16 md:py-24 bg-gradient-to-r from-primary/90 to-secondary/90">
+      <section
+        id="home"
+        class="py-16 md:py-24 bg-gradient-to-r from-primary/90 to-secondary/90"
+      >
         <div class="container mx-auto px-4">
-          <div class="flex flex-col md:flex-row items-center md:justify-between">
+          <div
+            class="flex flex-col md:flex-row items-center md:justify-between"
+          >
             <!-- Content  -->
             <div class="md:w-1/2 mb-10 md:mb-0">
-              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
+              <h1
+                class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white"
+              >
                 New Amazing Products
               </h1>
               <p class="text-xl mb-8 text-white">
@@ -96,22 +109,629 @@
 
             <!-- Image  -->
             <div class="md:w-1/2">
-              <img src="./assets/images/hero.png" class="max-w-full h-auto rounded-xl shadow-xl lg:w-3/4 float-right" alt="" />
+              <img
+                src="./assets/images/hero.png"
+                class="max-w-full h-auto rounded-xl shadow-xl lg:w-3/4 float-right"
+                alt=""
+              />
             </div>
           </div>
         </div>
       </section>
 
       <!-- Why Choose Us section  -->
-      <section></section>
+      <section id="why-choose-us" class="py-16">
+        <div class="container mx-auto px-4">
+          <div class="mb-10">
+            <h2 class="text-3xl font-bold text-center mb-4">
+              Why Choose ShopNest?
+            </h2>
+            <p class="text-gray-600 text-center">
+              We provide the best shopping experience with our premium quality
+              products.
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-5 gap-x-8"
+          >
+            <div class="bg-slate-100 py-5 px-7 rounded-lg shadow-md">
+              <div class="text-4xl text-primary mb-4">
+                <i class="fa fa-check"></i>
+              </div>
+              <h3 class="font-semibold text-xl mb-2">Quality Products</h3>
+              <p class="text-gray-600">
+                We provide only the best quality products from the trusted
+                suppliers.
+              </p>
+            </div>
+
+            <div class="bg-slate-100 py-5 px-7 rounded-lg shadow-md">
+              <div class="text-3xl text-primary mb-4">
+                <i class="fa fa-truck"></i>
+              </div>
+              <h3 class="font-semibold text-xl mb-2">Fast Delivery</h3>
+              <p class="text-gray-600">
+                Get your orders delivered in your record time.
+              </p>
+            </div>
+
+            <div class="bg-slate-100 py-5 px-7 rounded-lg shadow-md">
+              <div class="text-4xl text-primary mb-4">
+                <i class="fa fa-refresh"></i>
+              </div>
+              <h3 class="font-semibold text-xl mb-2">Easy Returns</h3>
+              <p class="text-gray-600">
+                No need to hustle for returning your products if not upto your
+                expectations.
+              </p>
+            </div>
+
+            <div class="bg-slate-100 py-5 px-7 rounded-lg shadow-md">
+              <div class="text-4xl text-primary mb-4">
+                <i class="fa fa-credit-card"></i>
+              </div>
+              <h3 class="font-semibold text-xl mb-2">Secure Payments</h3>
+              <p class="text-gray-600">
+                Shop with confidence using your secure payment methods and also
+                with multiple payment options.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- Products section  -->
-      <section></section>
+      <section id="products" class="py-16 bg-slate-100">
+        <div class="container mx-auto px-4">
+          <div class="mb-10">
+            <h2 class="text-3xl font-bold text-center mb-4">
+              Featured Products
+            </h2>
+            <p class="text-gray-600 text-center">
+              Check out the latest and best quality products available in the
+              market.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white rounded-lg shadow-md">
+              <div class="relative">
+                <img
+                  src="./assets/images/products/watch.jpg"
+                  class="rounded-t-lg w-full h-48 object-cover"
+                  alt=""
+                />
+                <span
+                  class="absolute top-2 left-2 bg-red-500 text-white rounded-full text-xs py-3 px-1"
+                >
+                  -20%
+                </span>
+              </div>
+
+              <div class="p-4">
+                <h3 class="font-semibold text-xl">Apple Watch 2</h3>
+
+                <div class="text-yellow-500 text-xs py-2">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half"></i>
+
+                  <span class="text-gray-500">(265)</span>
+                </div>
+
+                <div class="flex justify-between">
+                  <div>
+                    <span class="text-primary font-bold mr-1 text-lg">
+                      $79.99
+                    </span>
+                    <span class="line-through text-gray-500 text-sm"
+                      >$99.99</span
+                    >
+                  </div>
+
+                  <button class="text-primary">
+                    <i class="fa fa-shopping-cart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md">
+              <div class="relative">
+                <img
+                  src="./assets/images/products/watch.jpg"
+                  class="rounded-t-lg w-full h-48 object-cover"
+                  alt=""
+                />
+                <span
+                  class="absolute top-2 left-2 bg-red-500 text-white rounded-full text-xs py-3 px-1"
+                >
+                  -20%
+                </span>
+              </div>
+
+              <div class="p-4">
+                <h3 class="font-semibold text-xl">Apple Watch 2</h3>
+
+                <div class="text-yellow-500 text-xs py-2">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half"></i>
+
+                  <span class="text-gray-500">(265)</span>
+                </div>
+
+                <div class="flex justify-between">
+                  <div>
+                    <span class="text-primary font-bold mr-1 text-lg">
+                      $79.99
+                    </span>
+                    <span class="line-through text-gray-500 text-sm"
+                      >$99.99</span
+                    >
+                  </div>
+
+                  <button class="text-primary">
+                    <i class="fa fa-shopping-cart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md">
+              <div class="relative">
+                <img
+                  src="./assets/images/products/watch.jpg"
+                  class="rounded-t-lg w-full h-48 object-cover"
+                  alt=""
+                />
+                <span
+                  class="absolute top-2 left-2 bg-red-500 text-white rounded-full text-xs py-3 px-1"
+                >
+                  -20%
+                </span>
+              </div>
+
+              <div class="p-4">
+                <h3 class="font-semibold text-xl">Apple Watch 2</h3>
+
+                <div class="text-yellow-500 text-xs py-2">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half"></i>
+
+                  <span class="text-gray-500">(265)</span>
+                </div>
+
+                <div class="flex justify-between">
+                  <div>
+                    <span class="text-primary font-bold mr-1 text-lg">
+                      $79.99
+                    </span>
+                    <span class="line-through text-gray-500 text-sm"
+                      >$99.99</span
+                    >
+                  </div>
+
+                  <button class="text-primary">
+                    <i class="fa fa-shopping-cart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md">
+              <div class="relative">
+                <img
+                  src="./assets/images/products/watch.jpg"
+                  class="rounded-t-lg w-full h-48 object-cover"
+                  alt=""
+                />
+                <span
+                  class="absolute top-2 left-2 bg-red-500 text-white rounded-full text-xs py-3 px-1"
+                >
+                  -20%
+                </span>
+              </div>
+
+              <div class="p-4">
+                <h3 class="font-semibold text-xl">Apple Watch 2</h3>
+
+                <div class="text-yellow-500 text-xs py-2">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half"></i>
+
+                  <span class="text-gray-500">(265)</span>
+                </div>
+
+                <div class="flex justify-between">
+                  <div>
+                    <span class="text-primary font-bold mr-1 text-lg">
+                      $79.99
+                    </span>
+                    <span class="line-through text-gray-500 text-sm"
+                      >$99.99</span
+                    >
+                  </div>
+
+                  <button class="text-primary">
+                    <i class="fa fa-shopping-cart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md">
+              <div class="relative">
+                <img
+                  src="./assets/images/products/watch.jpg"
+                  class="rounded-t-lg w-full h-48 object-cover"
+                  alt=""
+                />
+                <span
+                  class="absolute top-2 left-2 bg-red-500 text-white rounded-full text-xs py-3 px-1"
+                >
+                  -20%
+                </span>
+              </div>
+
+              <div class="p-4">
+                <h3 class="font-semibold text-xl">Apple Watch 2</h3>
+
+                <div class="text-yellow-500 text-xs py-2">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half"></i>
+
+                  <span class="text-gray-500">(265)</span>
+                </div>
+
+                <div class="flex justify-between">
+                  <div>
+                    <span class="text-primary font-bold mr-1 text-lg">
+                      $79.99
+                    </span>
+                    <span class="line-through text-gray-500 text-sm"
+                      >$99.99</span
+                    >
+                  </div>
+
+                  <button class="text-primary">
+                    <i class="fa fa-shopping-cart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md">
+              <div class="relative">
+                <img
+                  src="./assets/images/products/watch.jpg"
+                  class="rounded-t-lg w-full h-48 object-cover"
+                  alt=""
+                />
+                <span
+                  class="absolute top-2 left-2 bg-red-500 text-white rounded-full text-xs py-3 px-1"
+                >
+                  -20%
+                </span>
+              </div>
+
+              <div class="p-4">
+                <h3 class="font-semibold text-xl">Apple Watch 2</h3>
+
+                <div class="text-yellow-500 text-xs py-2">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half"></i>
+
+                  <span class="text-gray-500">(265)</span>
+                </div>
+
+                <div class="flex justify-between">
+                  <div>
+                    <span class="text-primary font-bold mr-1 text-lg">
+                      $79.99
+                    </span>
+                    <span class="line-through text-gray-500 text-sm"
+                      >$99.99</span
+                    >
+                  </div>
+
+                  <button class="text-primary">
+                    <i class="fa fa-shopping-cart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md">
+              <div class="relative">
+                <img
+                  src="./assets/images/products/watch.jpg"
+                  class="rounded-t-lg w-full h-48 object-cover"
+                  alt=""
+                />
+                <span
+                  class="absolute top-2 left-2 bg-red-500 text-white rounded-full text-xs py-3 px-1"
+                >
+                  -20%
+                </span>
+              </div>
+
+              <div class="p-4">
+                <h3 class="font-semibold text-xl">Apple Watch 2</h3>
+
+                <div class="text-yellow-500 text-xs py-2">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half"></i>
+
+                  <span class="text-gray-500">(265)</span>
+                </div>
+
+                <div class="flex justify-between">
+                  <div>
+                    <span class="text-primary font-bold mr-1 text-lg">
+                      $79.99
+                    </span>
+                    <span class="line-through text-gray-500 text-sm"
+                      >$99.99</span
+                    >
+                  </div>
+
+                  <button class="text-primary">
+                    <i class="fa fa-shopping-cart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md">
+              <div class="relative">
+                <img
+                  src="./assets/images/products/watch.jpg"
+                  class="rounded-t-lg w-full h-48 object-cover"
+                  alt=""
+                />
+                <span
+                  class="absolute top-2 left-2 bg-red-500 text-white rounded-full text-xs py-3 px-1"
+                >
+                  -20%
+                </span>
+              </div>
+
+              <div class="p-4">
+                <h3 class="font-semibold text-xl">Apple Watch 2</h3>
+
+                <div class="text-yellow-500 text-xs py-2">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half"></i>
+
+                  <span class="text-gray-500">(265)</span>
+                </div>
+
+                <div class="flex justify-between">
+                  <div>
+                    <span class="text-primary font-bold mr-1 text-lg">
+                      $79.99
+                    </span>
+                    <span class="line-through text-gray-500 text-sm"
+                      >$99.99</span
+                    >
+                  </div>
+
+                  <button class="text-primary">
+                    <i class="fa fa-shopping-cart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-12">
+            <a
+              href="#products"
+              class="text-white bg-primary px-6 py-3 rounded-lg font-medium hover:bg-primary/90"
+              >View All Products</a
+            >
+          </div>
+        </div>
+      </section>
 
       <!-- Popular products section  -->
-      <section></section>
+      <section id="popular-products" class="py-16">
+        <div class="container mx-auto px-4">
+          <div class="mb-10">
+            <h2 class="text-3xl font-bold text-center mb-4">
+              Popular Products
+            </h2>
+            <p class="text-gray-600 text-center">
+              Check out the latest and best quality products available in the
+              market.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="rounded-lg shadow-md">
+              <div class="relative">
+                <img
+                  src="./assets/images/products/airpods.jpg"
+                  class="rounded-t-lg w-full h-48 object-cover"
+                  alt=""
+                />
+                <span
+                  class="absolute top-3 right-3 bg-red-500 text-white rounded-full text-xs px-3 py-1"
+                >
+                  Bestseller
+                </span>
+              </div>
+
+              <div class="p-4 flex flex-col justify-between">
+                <h3 class="font-semibold text-xl">Apple Airpods Pro</h3>
+
+                <p class="text-sm text-gray-500 py-2">
+                  One of the best selling airpods in the market by Apple Inc.
+                </p>
+
+                <div class="flex justify-between">
+                  <div>
+                    <span class="text-primary font-bold mr-1 text-lg">
+                      $59.99
+                    </span>
+                  </div>
+
+                  <button
+                    class="bg-primary text-white rounded px-2 py-1 text-sm"
+                  >
+                    <span>Add to Cart</span>
+                    <i class="fa fa-shopping-cart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-lg shadow-md">
+              <div class="relative">
+                <img
+                  src="./assets/images/products/samsung.jpg"
+                  class="rounded-t-lg w-full h-48 object-cover"
+                  alt=""
+                />
+                <span
+                  class="absolute top-3 right-3 bg-red-500 text-white rounded-full text-xs px-3 py-1"
+                >
+                  Trending
+                </span>
+              </div>
+
+              <div class="p-4">
+                <h3 class="font-semibold text-xl">Samsung S23 Ultra</h3>
+
+                <p class="text-sm text-gray-500 py-2">
+                  High-performance smartphone available in the market with the
+                  best AI features.
+                </p>
+
+                <div class="flex justify-between">
+                  <div>
+                    <span class="text-primary font-bold mr-1 text-lg">
+                      $999.99
+                    </span>
+                  </div>
+
+                  <button
+                    class="bg-primary text-white rounded px-2 py-1 text-sm"
+                  >
+                    <span>Add to Cart</span>
+                    <i class="fa fa-shopping-cart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-lg shadow-md">
+              <div class="relative">
+                <img
+                  src="./assets/images/products/pixel.jpg"
+                  class="rounded-t-lg w-full h-48 object-cover"
+                  alt=""
+                />
+                <span
+                  class="absolute top-3 right-3 bg-red-500 text-white rounded-full text-xs px-3 py-1"
+                >
+                  Limited
+                </span>
+              </div>
+
+              <div class="p-4">
+                <h3 class="font-semibold text-xl">Google Pixel 7xl</h3>
+
+                <p class="text-sm text-gray-500 py-2">
+                  Best camera featured phone with stock android experience.
+                </p>
+
+                <div class="flex justify-between">
+                  <div>
+                    <span class="text-primary font-bold mr-1 text-lg">
+                      $799.99
+                    </span>
+                  </div>
+
+                  <button
+                    class="bg-primary text-white rounded px-2 py-1 text-sm"
+                  >
+                    <span>Add to Cart</span>
+                    <i class="fa fa-shopping-cart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-lg shadow-md">
+              <div class="relative">
+                <img
+                  src="./assets/images/products/airpods.jpg"
+                  class="rounded-t-lg w-full h-48 object-cover"
+                  alt=""
+                />
+                <span
+                  class="absolute top-3 right-3 bg-red-500 text-white rounded-full text-xs px-3 py-1"
+                >
+                  Bestseller
+                </span>
+              </div>
+
+              <div class="p-4">
+                <h3 class="font-semibold text-xl">Apple Airpods Pro</h3>
+
+                <p class="text-sm text-gray-500 py-2">
+                  One of the best selling airpods in the market by Apple Inc.
+                </p>
+
+                <div class="flex justify-between">
+                  <div>
+                    <span class="text-primary font-bold mr-1 text-lg">
+                      $59.99
+                    </span>
+                  </div>
+
+                  <button
+                    class="bg-primary text-white rounded px-2 py-1 text-sm"
+                  >
+                    <span>Add to Cart</span>
+                    <i class="fa fa-shopping-cart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action  -->
+      <section class="py-16 bg-primary">Call to action</section>
+
+      <!-- Product Categories  -->
+      <section id="categories" class="py-16 bg-slate-100">Categories</section>
+
+      <!-- Testimonials  -->
+      <section id="testimonials" class="py-16">Testimonials</section>
     </main>
 
-    <footer></footer>
+    <!-- Footer  -->
+    <footer class="h-80 bg-slate-800"></footer>
   </body>
 </html>
