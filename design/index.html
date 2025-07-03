@@ -722,16 +722,378 @@
       </section>
 
       <!-- Call to Action  -->
-      <section class="py-16 bg-primary">Call to action</section>
+      <section class="py-16 bg-primary">
+        <div class="container mx-auto px-4">
+          <div class="mb-6">
+            <h2 class="text-3xl font-bold text-center mb-4 text-white">
+              Join Our Newsletter
+            </h2>
+            <p class="text-gray-600 text-center text-slate-200">
+              Subscribe to get the latest updates on our new arrivals and
+              special offers.
+            </p>
+          </div>
+
+          <form class="flex flex-col md:flex-row gap-3 justify-center">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Your email address"
+              class="px-4 py-3 rounded-lg text-zinc-800 lg:w-1/3 focus:outline-none focus:ring-2 focus:ring-secondary"
+            />
+            <button
+              type="submit"
+              class="bg-secondary px-8 py-3 rounded-lg text-white font-medium hover:bg-secondary/90 transition"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </section>
 
       <!-- Product Categories  -->
-      <section id="categories" class="py-16 bg-slate-100">Categories</section>
+      <section id="categories" class="py-16 bg-slate-100">
+        <div class="container mx-auto px-4">
+          <div class="mb-10">
+            <h2 class="text-3xl font-bold text-center mb-4">
+              Shop by Category
+            </h2>
+            <p class="text-gray-600 text-center">
+              Browse your products by categories.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-8">
+            <a href="#">
+              <div
+                class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6 flex flex-col items-center gap-2 justify-between"
+              >
+                <div
+                  class="text-primary text-3xl bg-slate-100 p-5 h-20 w-20 rounded-full flex items-center justify-center"
+                >
+                  <i class="fa fa-laptop"></i>
+                </div>
+                <div class="text-center">
+                  <h3 class="font-semibold text-lg">Laptops & PC</h3>
+                  <p class="text-slate-600 text-sm">35 Products</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="#">
+              <div
+                class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6 flex flex-col items-center gap-2 justify-between"
+              >
+                <div
+                  class="text-primary text-3xl bg-slate-100 p-5 h-20 w-20 rounded-full flex items-center justify-center"
+                >
+                  <i class="fa fa-shopping-bag"></i>
+                </div>
+                <div class="text-center">
+                  <h3 class="font-semibold text-lg">Cosmetics & Fashion</h3>
+                  <p class="text-slate-600 text-sm">562 Products</p>
+                </div>
+              </div></a
+            >
+            <a href="#">
+              <div
+                class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6 flex flex-col items-center gap-2 justify-between"
+              >
+                <div
+                  class="text-primary text-3xl bg-slate-100 p-5 h-20 w-20 rounded-full flex items-center justify-center"
+                >
+                  <i class="fa fa-cutlery"></i>
+                </div>
+                <div class="text-center">
+                  <h3 class="font-semibold text-lg">Groceries</h3>
+                  <p class="text-slate-600 text-sm">95 Products</p>
+                </div>
+              </div>
+            </a>
+            <a href="#">
+              <div
+                class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6 flex flex-col items-center gap-2 justify-between"
+              >
+                <div
+                  class="text-primary text-3xl bg-slate-100 p-5 h-20 w-20 rounded-full flex items-center justify-center"
+                >
+                  <i class="fa fa-cube"></i>
+                </div>
+                <div class="text-center">
+                  <h3 class="font-semibold text-lg">Miscellaneous</h3>
+                  <p class="text-slate-600 text-sm">255 Products</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
 
       <!-- Testimonials  -->
-      <section id="testimonials" class="py-16">Testimonials</section>
+      <section id="testimonials" class="py-16">
+        <div class="container mx-auto px-4">
+          <div class="mb-10">
+            <h2 class="text-3xl font-bold text-center mb-4">
+              What Our Customers Say
+            </h2>
+            <p class="text-gray-600 text-center">
+              Hear from our satisfied customers what they have to say about us.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div
+              class="bg-slate-100 rounded-lg shadow-md hover:shadow-lg transition p-6"
+            >
+              <div class="text-slate-500 text-xl">
+                <i class="fa fa-quote-right"></i>
+              </div>
+              <p class="text-sm text-slate-600 text-justify">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi
+                error iure qui sapiente impedit. Iusto earum nisi dolorem soluta
+                eius adipisci repellat, ipsum quaerat explicabo eos magnam
+                maxime laudantium impedit, repellendus nobis ad! Animi quibusdam
+                deleniti, deserunt tempora quo nesciunt!
+              </p>
+
+              <div class="text-yellow-500 text-sm py-3">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half"></i>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <img
+                  src="assets/images/customers/2.jpg"
+                  alt=""
+                  class="h-12 w-12 object-cover rounded-full border border-slate-400"
+                />
+
+                <div>
+                  <h4 class="font-semibold">Micheal Jackson</h4>
+                  <p class="text-xs text-slate-500">Satisfied customer</p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-slate-100 rounded-lg shadow-md hover:shadow-lg transition p-6"
+            >
+              <div class="text-slate-500 text-xl">
+                <i class="fa fa-quote-right"></i>
+              </div>
+              <p class="text-sm text-slate-600 text-justify">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi
+                error iure qui sapiente impedit. Iusto earum nisi dolorem soluta
+                eius adipisci repellat, ipsum quaerat explicabo eos magnam
+                maxime laudantium impedit, repellendus nobis ad! Animi quibusdam
+                deleniti, deserunt tempora quo nesciunt!
+              </p>
+
+              <div class="text-yellow-500 text-sm py-3">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half"></i>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <img
+                  src="assets/images/customers/1.jpg"
+                  alt=""
+                  class="h-12 w-12 object-cover rounded-full border border-slate-400"
+                />
+
+                <div>
+                  <h4 class="font-semibold">Sarah Jameson</h4>
+                  <p class="text-xs text-slate-500">Satisfied customer</p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-slate-100 rounded-lg shadow-md hover:shadow-lg transition p-6"
+            >
+              <div class="text-slate-500 text-xl">
+                <i class="fa fa-quote-right"></i>
+              </div>
+              <p class="text-sm text-slate-600 text-justify">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi
+                error iure qui sapiente impedit. Iusto earum nisi dolorem soluta
+                eius adipisci repellat, ipsum quaerat explicabo eos magnam
+                maxime laudantium impedit, repellendus nobis ad! Animi quibusdam
+                deleniti, deserunt tempora quo nesciunt!
+              </p>
+
+              <div class="text-yellow-500 text-sm py-3">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half"></i>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <img
+                  src="assets/images/customers/3.jpg"
+                  alt=""
+                  class="h-12 w-12 object-cover rounded-full border border-slate-400"
+                />
+
+                <div>
+                  <h4 class="font-semibold">Jonathan White</h4>
+                  <p class="text-xs text-slate-500">Satisfied customer</p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-slate-100 rounded-lg shadow-md hover:shadow-lg transition p-6"
+            >
+              <div class="text-slate-500 text-xl">
+                <i class="fa fa-quote-right"></i>
+              </div>
+              <p class="text-sm text-slate-600 text-justify">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi
+                error iure qui sapiente impedit. Iusto earum nisi dolorem soluta
+                eius adipisci repellat, ipsum quaerat explicabo eos magnam
+                maxime laudantium impedit, repellendus nobis ad! Animi quibusdam
+                deleniti, deserunt tempora quo nesciunt!
+              </p>
+
+              <div class="text-yellow-500 text-sm py-3">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half"></i>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <img
+                  src="assets/images/customers/4.jpg"
+                  alt=""
+                  class="h-12 w-12 object-cover rounded-full border border-slate-400"
+                />
+
+                <div>
+                  <h4 class="font-semibold">Scarlett Johansson</h4>
+                  <p class="text-xs text-slate-500">Satisfied customer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer  -->
-    <footer class="h-80 bg-slate-800"></footer>
+    <footer class="py-16 bg-slate-800">
+      <div class="container mx-auto px-4">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 border-b border-b-slate-600 pb-16 mb-5"
+        >
+          <div>
+            <h1 class="text-2xl font-bold text-white">ShopNest</h1>
+            <p class="text-sm text-slate-400 py-3">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Laboriosam nemo veniam tenetur non eius. Dicta non quos tenetur
+              quisquam porro?
+            </p>
+            <div class="flex gap-2">
+              <a href="#" class="text-slate-300"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-slate-300"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="text-slate-300"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="#" class="text-slate-300"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-white mb-3">Shop</h3>
+
+            <ul>
+              <li>
+                <a href="#" class="hover:underline text-sm text-slate-300"
+                  >Featured</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:underline text-sm text-slate-300"
+                  >Popular</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:underline text-sm text-slate-300"
+                  >New Arrivals</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:underline text-sm text-slate-300"
+                  >Sale Items</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-white mb-3">We Accept</h3>
+
+            <div class="flex items-start flex-col gap-3">
+              <img
+                src="assets/images/payments/esewa.svg"
+                class="h-10 bg-white rounded px-5 py-2 w-auto"
+                alt=""
+              />
+              <img
+                src="assets/images/payments/khalti.png"
+                class="h-10 bg-white rounded px-5 py-2 w-auto"
+                alt=""
+              />
+              <img
+                src="assets/images/payments/fonepay.png"
+                class="h-10 bg-white rounded px-5 py-2 w-auto"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-white mb-3">Contact Us</h3>
+
+            <ul>
+              <li class="text-sm text-slate-300 mb-1">
+                <i class="fa fa-envelope"></i>
+                <span class="ml-1">info@shopnest.com</span>
+              </li>
+              <li class="text-sm text-slate-300 mb-1">
+                <i class="fa fa-map-marker-alt"></i>
+                <span class="ml-1">22nd Street, Manhattan, NYC</span>
+              </li>
+              <li class="text-sm text-slate-300 mb-1">
+                <i class="fa fa-phone"></i>
+                <span class="ml-1">(+01) 4581618761</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <p class="text-slate-400 text-sm">Copyright © 2025 ShopNest.</p>
+
+          <div>
+            <a href="#" class="text-sm text-slate-400 hover:underline">Privary Policy</a>
+            <a href="#" class="text-sm text-slate-400 hover:underline">Terms & Conditions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
