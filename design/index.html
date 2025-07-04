@@ -65,8 +65,16 @@
             >
           </nav>
 
-          <div class="text-secondary">
-            <i class="fa fa-shopping-cart"></i>
+          <div class="flex items-center gap-3">
+            <div class="text-sm">
+              <i class="fa fa-shopping-cart"></i>
+            </div>
+
+            <button
+              class="text-sm text-secondary border-secondary border-2 rounded-3xl px-4 py-1 hover:bg-secondary hover:text-white transition"
+            >
+              Login
+            </button>
           </div>
         </div>
       </div>
@@ -76,7 +84,7 @@
       <!-- Hero section  -->
       <section
         id="home"
-        class="py-16 md:py-24 bg-gradient-to-r from-primary/90 to-secondary/90"
+        class="py-16 md:py-24 bg-gradient-to-r from-primary via-purple-800 to-secondary"
       >
         <div class="container mx-auto px-4">
           <div
@@ -120,7 +128,7 @@
       </section>
 
       <!-- Why Choose Us section  -->
-      <section id="why-choose-us" class="py-16">
+      <section id="why-choose-us" class="py-16 bg-white">
         <div class="container mx-auto px-4">
           <div class="mb-10">
             <h2 class="text-3xl font-bold text-center mb-4">
@@ -551,8 +559,105 @@
         </div>
       </section>
 
+      <!-- Registration section -->
+      <section class="py-16 relative">
+        <img
+          src="assets/images/registration-bg.jpg"
+          alt=""
+          class="w-full h-full object-cover absolute top-0 -z-20"
+        />
+        <div
+          class="absolute top-0 left-0 w-full h-full bg-black opacity-60 -z-10"
+        ></div>
+
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="flex flex-col justify-center">
+              <h2
+                class="text-4xl md:text-6xl font-semibold text-white uppercase tracking-[0.25rem] mb-4"
+              >
+                Dress to Impress
+              </h2>
+              <p class="text-gray-300">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatum ipsum adipisci dolore vitae commodi, officiis rerum
+                mollitia quas sint? Excepturi corporis voluptas atque hic
+                suscipit dignissimos eos at in beatae.
+              </p>
+            </div>
+
+            <div
+              class="bg-white rounded-2xl px-8 py-10 lg:w-3/4 shadow-md shadow-gray-600 mx-auto"
+            >
+              <h3 class="text-3xl font-bold text-center mb-4">Contact form</h3>
+
+              <form>
+                <div class="pb-2">
+                  <label for="name">Full name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    placeholder="Your full name"
+                    required
+                    class="w-full py-2 px-3 rounded-md border-2 border-zinc-300 focus:outline-none focus:ring-2 focus:ring-secondary mt-1"
+                  />
+                </div>
+
+                <div class="pb-2">
+                  <label for="email">Email address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Your email address"
+                    required
+                    class="w-full py-2 px-3 rounded-md border-2 border-zinc-300 focus:outline-none focus:ring-2 focus:ring-secondary mt-1"
+                  />
+                </div>
+                <div class="pb-2">
+                  <label for="phone">Phone number</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Your phone number"
+                    required
+                    class="w-full py-2 px-3 rounded-md border-2 border-zinc-300 focus:outline-none focus:ring-2 focus:ring-secondary mt-1"
+                  />
+                </div>
+
+                <div class="pb-2">
+                  <label for="subject">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    placeholder="Subject"
+                    required
+                    class="w-full py-2 px-3 rounded-md border-2 border-zinc-300 focus:outline-none focus:ring-2 focus:ring-secondary mt-1"
+                  />
+                </div>
+
+                <div class="pb-2">
+                  <label for="message">Message</label>
+                  <textarea
+                    name="message"
+                    id="message"
+                    required
+                    class="w-full py-2 px-3 rounded-md border-2 border-zinc-300 focus:outline-none focus:ring-2 focus:ring-secondary mt-1"
+                  ></textarea>
+                </div>
+
+                <input
+                  type="submit"
+                  value="Send message"
+                  class="bg-primary text-white px-6 py-2 rounded-lg shadow-md hover:bg-primary/90"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Popular products section  -->
-      <section id="popular-products" class="py-16">
+      <section id="popular-products" class="py-16 bg-white">
         <div class="container mx-auto px-4">
           <div class="mb-10">
             <h2 class="text-3xl font-bold text-center mb-4">
@@ -722,7 +827,7 @@
       </section>
 
       <!-- Call to Action  -->
-      <section class="py-16 bg-primary">
+      <section class="py-16 bg-black/50">
         <div class="container mx-auto px-4">
           <div class="mb-6">
             <h2 class="text-3xl font-bold text-center mb-4 text-white">
@@ -831,7 +936,7 @@
       </section>
 
       <!-- Testimonials  -->
-      <section id="testimonials" class="py-16">
+      <section id="testimonials" class="py-16 bg-white">
         <div class="container mx-auto px-4">
           <div class="mb-10">
             <h2 class="text-3xl font-bold text-center mb-4">
@@ -1089,11 +1194,29 @@
           <p class="text-slate-400 text-sm">Copyright © 2025 ShopNest.</p>
 
           <div>
-            <a href="#" class="text-sm text-slate-400 hover:underline">Privary Policy</a>
-            <a href="#" class="text-sm text-slate-400 hover:underline">Terms & Conditions</a>
+            <a href="#" class="text-sm text-slate-400 hover:underline"
+              >Privary Policy</a
+            >
+            <a href="#" class="text-sm text-slate-400 hover:underline"
+              >Terms & Conditions</a
+            >
           </div>
         </div>
       </div>
     </footer>
+
+    <img
+      src="assets/images/bg.jpg"
+      alt=""
+      class="h-svh w-full object-cover fixed top-0 left-0 -z-50"
+    />
+
+    <!-- Jump to top  -->
+    <a
+      href="#home"
+      class="fixed bottom-5 right-5 bg-white border-2 border-secondary text-secondary rounded-full h-10 w-10 flex items-center justify-center z-10"
+    >
+      <i class="fa fa-arrow-up"></i>
+    </a>
   </body>
 </html>
