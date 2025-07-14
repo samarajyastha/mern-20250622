@@ -1,5 +1,22 @@
 # MERN Stack E-commerce
 
+## Init Project
+
+1. Copy `.env.example` to `.env`
+2. Update env variables with your own values
+
+### Installation
+
+```
+npm install
+```
+
+### Run project
+
+```
+npm run dev
+```
+
 ## Folder structure
 root/
 - package.json
