@@ -1,17 +1,25 @@
 import productService from "../services/productService.js";
 
 const getProducts = (req, res) => {
-  const products = productService.getProducts();
+  // Request query
+  const products = productService.getProducts(req.query);
 
   res.status(200).json(products);
 };
 
 const getProductById = (req, res) => {
-  res.send("Product by id 1");
+  // Request params
+  const id = req.params.id;
+
+  const product = productService.getProductById(id);
+
+  res.json(product);
 };
 
 const createProduct = (req, res) => {
-  res.send("Create a product");
+  productService.createProduct(req.body);
+
+  res.status(201).send("Product created successfully.");
 };
 
 const updateProduct = (req, res) => {

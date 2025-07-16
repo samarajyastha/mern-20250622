@@ -1,9 +1,13 @@
+import bodyParser from "body-parser";
 import express from "express";
+
 import config from "./config/config.js";
 import productRoutes from "./routes/productRoute.js";
 import todoRoutes from "./routes/todoRoute.js";
 
 const app = express();
+
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   res.json({
