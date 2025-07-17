@@ -11,14 +11,16 @@
     "category": "Smartphones",
     "id": "67ed5844d65d5aa5646c4753",
     "name": "Iphone 14",
-    "price": 128998
+    "price": 128998,
+    "rating": 5
   },
   {
     "brand": "Samsung",
     "category": "Smartphones",
     "id": "67ed5883d65d5aa5646c4761",
     "name": "Samsung Galaxy s24",
-    "price": 185000
+    "price": 185000,
+    "createdAt": "2025-01-01"
   },
   {
     "brand": "Dell",
