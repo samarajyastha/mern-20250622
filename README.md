@@ -147,3 +147,40 @@ root/
 1. deleteOne
 - db.<collectionName>.deleteOne({find})
 - db.products.deleteOne({name: "Iphone 14 pro max"})
+
+## Complex filter
+
+1. $eq: Equality operator
+- db.products.find({category: {$eq: "Monitors" }})
+
+2. $ne: Not equal operator
+- db.products.find({category: {$ne: "Monitors" }})
+
+3. $gt/$gte: Greater than operator
+- db.products.find({price: {$gt: 3000 }})
+
+4. $lt/$lte: Less than operator
+- db.products.find({price: {$lt: 3000 }})
+
+5. $in
+- db.products.find({price: {$in: [2000, 2500] }})
+
+6. $and
+- db.products.find({ $and: [ {price: 2000 } , {category:"Cosmetics"}]})
+
+7. $or
+- db.products.find({ $or: [ {price: 2000 } , {category:"Monitors"}]})
+
+8. $not
+- db.products.find({price: {$not: {$in: [2000, 2500]} }})
+
+## Sorting
+- db.products.find().sort({price: 1})
+- 1: asc
+- -1: desc
+
+## Limit
+- db.products.find().limit(2)
+
+## Skip
+- db.products.find().skip(3)
