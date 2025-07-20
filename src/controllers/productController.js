@@ -1,33 +1,53 @@
 import productService from "../services/productService.js";
 
-const getProducts = (req, res) => {
+const getProducts = async (req, res) => {
   // Request query
-  const products = productService.getProducts(req.query);
+  const products = await productService.getProducts(req.query);
 
   res.status(200).json(products);
 };
 
-const getProductById = (req, res) => {
+const getProductById = async (req, res) => {
   // Request params
   const id = req.params.id;
 
-  const product = productService.getProductById(id);
+  const product = await productService.getProductById(id);
 
   res.json(product);
 };
 
-const createProduct = (req, res) => {
-  productService.createProduct(req.body);
+const createProduct = async (req, res) => {
+  try {
+    const data = await productService.createProduct(req.body);
 
-  res.status(201).send("Product created successfully.");
+    res.status(201).json(data);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 };
 
-const updateProduct = (req, res) => {
-  res.send("Update a product");
+const updateProduct = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const data = await productService.updateProduct(id, req.body);
+
+    res.status(201).json(data);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 };
 
-const deleteProduct = (req, res) => {
-  res.send("Delete a product");
+const deleteProduct = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    await productService.deleteProduct(id);
+
+    res.send(`Product deleted successfully with id: ${id}`);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 };
 
 export default {
