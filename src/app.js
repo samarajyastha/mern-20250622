@@ -3,6 +3,7 @@ import express from "express";
 
 import config from "./config/config.js";
 import productRoutes from "./routes/productRoute.js";
+import userRoutes from "./routes/userRoute.js";
 import todoRoutes from "./routes/todoRoute.js";
 import connectDB from "./config/database.js";
 
@@ -21,7 +22,8 @@ app.get("/", (req, res) => {
   });
 });
 
-app.use("/products", productRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/users", userRoutes);
 app.use("/todos", todoRoutes);
 
 app.listen(config.port, () => {
