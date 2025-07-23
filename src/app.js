@@ -2,6 +2,7 @@ import bodyParser from "body-parser";
 import express from "express";
 
 import config from "./config/config.js";
+import authRoutes from "./routes/authRoute.js";
 import productRoutes from "./routes/productRoute.js";
 import userRoutes from "./routes/userRoute.js";
 import todoRoutes from "./routes/todoRoute.js";
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
   });
 });
 
+app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/todos", todoRoutes);
