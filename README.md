@@ -224,4 +224,21 @@ root/
 
 - Adding random texts in the hash value
 
-Newly added code
+# Auth
+
+1. Login success
+2. Token generated - JWT
+3. Store token - Cookie, session storage, local storage
+4. Append this token in every requests to handle auth
+
+## JWT - JSON Web Token
+
+- Used for auth
+- Self verified
+- Tamper-proof
+
+### Structure
+
+1. Header
+2. Payload
+3. Signature
