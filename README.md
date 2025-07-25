@@ -27,7 +27,6 @@ root/
 - node_modules/
 - src/
   - app.js
-  -
   - constants/
     - roles.js
   - controllers/
@@ -228,7 +227,7 @@ root/
 
 1. Login success
 2. Token generated - JWT
-3. Store token - Cookie, session storage, local storage
+3. Store token - Cookie storage, session storage, local storage
 4. Append this token in every requests to handle auth
 
 ## JWT - JSON Web Token
@@ -242,3 +241,37 @@ root/
 1. Header
 2. Payload
 3. Signature
+
+## Cookie
+- Can be stored in both server and browser
+- Size: 4KB
+- Expiry date can be set
+- Available in all tabs
+
+## Session storage
+- Can be stored only in browser
+- Size: 5MB
+- Expires on tab close
+- Available in one tab only
+
+## Local storage
+- Can be stored only in browser
+- Size: 5MB - 10MB
+- Never expires
+- Available in all tabs
+
+# Middleware
+- Function that sits between request and response.
+
+Browser ----- Request -----> Server
+Middleware
+Server ------ Response -----> Browser
+
+- Function that has the accessibility of both request and response objects
+- It has the functionality to go to next() function call
+
+## Usage
+- Logging
+- Authentication & Authorization
+- Error handling
+- Modify request data

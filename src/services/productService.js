@@ -12,8 +12,11 @@ const getProductById = async (id) => {
   return product;
 };
 
-const createProduct = async (data) => {
-  const createdProduct = await Product.create(data);
+const createProduct = async (data, createdBy) => {
+  const createdProduct = await Product.create({
+    ...data,
+    createdBy,
+  });
 
   return createdProduct;
 };

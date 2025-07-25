@@ -29,6 +29,7 @@ const productSchema = new mongoose.Schema({
   imageUrls: {
     type: [String],
   },
+  createdBy: String,
 });
 
 const model = mongoose.model("Product", productSchema);

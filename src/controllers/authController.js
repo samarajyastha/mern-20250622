@@ -1,5 +1,5 @@
 import authService from "../services/authService.js";
-import { createJWT, verifyJWT } from "../utils/jwt.js";
+import { createJWT } from "../utils/jwt.js";
 
 const login = async (req, res) => {
   const input = req.body;
@@ -19,12 +19,9 @@ const login = async (req, res) => {
 
     const data = await authService.login(input);
 
-    // generate token
-    const token = createJWT(data);
+    const authToken = createJWT(data);
 
-    const result = await verifyJWT(token);
-
-    console.log(result);
+    res.cookie("authToken", authToken, { maxAge: 86400 * 1000 });
 
     res.json(data);
   } catch (error) {
@@ -49,6 +46,10 @@ const register = async (req, res) => {
     }
 
     const data = await authService.register(input);
+
+    const authToken = createJWT(data);
+
+    res.cookie("authToken", authToken, { maxAge: 86400 * 1000 });
 
     res.status(201).json(data);
   } catch (error) {

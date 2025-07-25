@@ -18,7 +18,7 @@ const getProductById = async (req, res) => {
 
 const createProduct = async (req, res) => {
   try {
-    const data = await productService.createProduct(req.body);
+    const data = await productService.createProduct(req.body, req.user.name);
 
     res.status(201).json(data);
   } catch (error) {

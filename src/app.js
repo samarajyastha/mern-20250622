@@ -7,12 +7,15 @@ import productRoutes from "./routes/productRoute.js";
 import userRoutes from "./routes/userRoute.js";
 import todoRoutes from "./routes/todoRoute.js";
 import connectDB from "./config/database.js";
+import logger from "./middlewares/logger.js";
+import auth from "./middlewares/auth.js";
 
 const app = express();
 
 connectDB();
 
 app.use(bodyParser.json());
+app.use(logger);
 
 app.get("/", (req, res) => {
   res.json({
@@ -25,7 +28,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
-app.use("/api/users", userRoutes);
+app.use("/api/users", auth, userRoutes);
 app.use("/todos", todoRoutes);
 
 app.listen(config.port, () => {
