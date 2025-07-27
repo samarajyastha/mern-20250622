@@ -9,6 +9,8 @@ import todoRoutes from "./routes/todoRoute.js";
 import connectDB from "./config/database.js";
 import logger from "./middlewares/logger.js";
 import auth from "./middlewares/auth.js";
+import roleBasedAuth from "./middlewares/roleBasedAuth.js";
+import { ADMIN } from "./constants/roles.js";
 
 const app = express();
 
@@ -28,7 +30,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
-app.use("/api/users", auth, userRoutes);
+app.use("/api/users", auth, roleBasedAuth(ADMIN), userRoutes);
 app.use("/todos", todoRoutes);
 
 app.listen(config.port, () => {

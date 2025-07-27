@@ -275,3 +275,15 @@ Server ------ Response -----> Browser
 - Authentication & Authorization
 - Error handling
 - Modify request data
+
+# Authentication & Authorization
+- Authentication: Is user logged in/available?
+- Authorization: Is user allowed to do something?
+
+# RBAC - Role Based Access Control
+
+- Single type role: Access Hierarchy
+- Multiple roles: 
+1. USER -> purchase
+2. MERCHANT -> product mngt
+3. ADMIN -> user mngt, order mngt
