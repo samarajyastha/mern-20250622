@@ -287,3 +287,28 @@ Server ------ Response -----> Browser
 1. USER -> purchase
 2. MERCHANT -> product mngt
 3. ADMIN -> user mngt, order mngt
+
+# Product order
+1. User id
+2. Product items
+  a. product id
+  b. quantity
+3. status
+4. orderNumber
+5. totalPrice
+6. shippingAddress
+
+# Todos
+- File upload
+- Order
+  - Get orders by user
+  - Confirm order (payment)
+  - Update order status
+- Payment
+- Forgot password/reset password/verify email
+- Email send
+- AI integration
+- Multi vendor system
+- Sematic coding
+- Debugging
+- Deployment

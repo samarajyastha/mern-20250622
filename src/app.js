@@ -4,6 +4,7 @@ import express from "express";
 import config from "./config/config.js";
 import authRoutes from "./routes/authRoute.js";
 import productRoutes from "./routes/productRoute.js";
+import orderRoutes from "./routes/orderRoute.js";
 import userRoutes from "./routes/userRoute.js";
 import todoRoutes from "./routes/todoRoute.js";
 import connectDB from "./config/database.js";
@@ -30,6 +31,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/orders", orderRoutes);
 app.use("/api/users", auth, roleBasedAuth(ADMIN), userRoutes);
 app.use("/todos", todoRoutes);
 
