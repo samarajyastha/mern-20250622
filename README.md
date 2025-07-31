@@ -298,17 +298,22 @@ Server ------ Response -----> Browser
 5. totalPrice
 6. shippingAddress
 
+# File upload
+1. Data/File input : Body -> FormData -> Multer
+2. Temporary storage: /uploads -> Buffer (Binary data)
+3. Storage bucket: Upload to Cloudinary -> filePath/url
+4. Set the filepath/url: use this filepath/url to store in database
+
 # Todos
-- File upload
 - Order
-  - Get orders by user
   - Confirm order (payment)
-  - Update order status
 - Payment
 - Forgot password/reset password/verify email
 - Email send
+- User profile image
 - AI integration
 - Multi vendor system
 - Sematic coding
 - Debugging
 - Deployment
+- Typescript

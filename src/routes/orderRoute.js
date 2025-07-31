@@ -9,7 +9,14 @@ const router = express.Router();
 // URL: /api/orders
 router.get("/", auth, roleBasedAuth(ADMIN), orderController.getOrders);
 
+// URL: /api/orders/user
+router.get("/user", auth, orderController.getOrdersByUser);
+
+router.get("/:id", auth, roleBasedAuth(ADMIN), orderController.getOrderById);
+
 router.post("/", auth, orderController.createOrder);
+
+router.put("/:id", auth, roleBasedAuth(ADMIN), orderController.updateOrder);
 
 router.delete("/:id", auth, roleBasedAuth(ADMIN), orderController.deleteOrder);
 
