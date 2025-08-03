@@ -304,10 +304,16 @@ Server ------ Response -----> Browser
 3. Storage bucket: Upload to Cloudinary -> filePath/url
 4. Set the filepath/url: use this filepath/url to store in database
 
+# Payment
+1. Payment method use (for e.g pay via khalti)
+2. Update payment status in our system
+
+## Khalti
+1. Payment initialize -> Generate url using the input data
+2. Payment occurs in the khalti portal
+3. Redirects to your return url after completion
+
 # Todos
-- Order
-  - Confirm order (payment)
-- Payment
 - Forgot password/reset password/verify email
 - Email send
 - User profile image
