@@ -61,7 +61,7 @@ const deleteOrder = async (id) => {
   return await Order.findByIdAndDelete(id);
 };
 
-const orderPayment = async (id) => {
+const orderPaymentViaKhalti = async (id) => {
   const order = await getOrderById(id);
 
   const transactionId = crypto.randomUUID();
@@ -118,6 +118,6 @@ export default {
   getOrders,
   getOrdersByUser,
   updateOrder,
-  orderPayment,
+  orderPaymentViaKhalti,
   confirmOrderPayment,
 };

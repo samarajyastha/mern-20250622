@@ -48,4 +48,24 @@ const deleteUser = async (req, res) => {
   }
 };
 
-export default { createUser, getUsers, getUserById, updateUser, deleteUser };
+const updateProfileImage = async (req, res) => {
+  const id = req.params.id;
+  const file = req.file;
+
+  try {
+    const data = await userService.updateProfileImage(id, file);
+
+    res.json(data);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+export default {
+  createUser,
+  getUsers,
+  getUserById,
+  updateUser,
+  deleteUser,
+  updateProfileImage,
+};
