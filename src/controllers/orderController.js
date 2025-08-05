@@ -42,13 +42,17 @@ const createOrder = async (req, res) => {
 
     res.json(data);
   } catch (error) {
-    res.status(500).send(error.message);
+    res.status(error.statusCode || 500).send(error.message);
   }
 };
 
 const updateOrder = async (req, res) => {
   try {
-    const data = await orderService.updateOrder(req.params.id, req.body);
+    const data = await orderService.updateOrder(
+      req.params.id,
+      req.body,
+      req.user
+    );
 
     res.json(data);
   } catch (error) {
@@ -58,11 +62,11 @@ const updateOrder = async (req, res) => {
 
 const deleteOrder = async (req, res) => {
   try {
-    await orderService.deleteOrder(req.params.id);
+    await orderService.deleteOrder(req.params.id, req.user);
 
     res.send("Order deleted successfully.");
   } catch (error) {
-    res.status(500).send(error.message);
+    res.status(error.statusCode || 500).send(error.message);
   }
 };
 
@@ -70,11 +74,11 @@ const orderPaymentViaKhalti = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const data = await orderService.orderPaymentViaKhalti(id);
+    const data = await orderService.orderPaymentViaKhalti(id, req.user);
 
     res.json(data);
   } catch (error) {
-    res.status(500).send(error.message);
+    res.status(error.statusCode || 500).send(error.message);
   }
 };
 
@@ -82,11 +86,15 @@ const confirmOrderPayment = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const data = await orderService.confirmOrderPayment(id, req.body.status);
+    const data = await orderService.confirmOrderPayment(
+      id,
+      req.body.status,
+      req.user
+    );
 
     res.json(data);
   } catch (error) {
-    res.status(500).send(error.message);
+    res.status(error.statusCode || 500).send(error.message);
   }
 };
 

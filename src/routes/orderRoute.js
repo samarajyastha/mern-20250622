@@ -7,22 +7,22 @@ import { ADMIN } from "../constants/roles.js";
 const router = express.Router();
 
 // URL: /api/orders
-router.get("/", auth, roleBasedAuth(ADMIN), orderController.getOrders);
+router.get("/", roleBasedAuth(ADMIN), orderController.getOrders);
 
 // URL: /api/orders/user
-router.get("/user", auth, orderController.getOrdersByUser);
+router.get("/user", orderController.getOrdersByUser);
 
-router.get("/:id", auth, roleBasedAuth(ADMIN), orderController.getOrderById);
+router.get("/:id", roleBasedAuth(ADMIN), orderController.getOrderById);
 
-router.post("/", auth, orderController.createOrder);
+router.post("/", orderController.createOrder);
 
-router.put("/:id", auth, roleBasedAuth(ADMIN), orderController.updateOrder);
+router.put("/:id", orderController.updateOrder);
 
-router.delete("/:id", auth, roleBasedAuth(ADMIN), orderController.deleteOrder);
+router.delete("/:id", orderController.deleteOrder);
 
 // URL: /api/orders/:id/payment/khalti
-router.post("/:id/payment/khalti", auth, orderController.orderPaymentViaKhalti);
+router.post("/:id/payment/khalti", orderController.orderPaymentViaKhalti);
 
-router.put("/:id/confirm-payment", auth, orderController.confirmOrderPayment);
+router.put("/:id/confirm-payment", orderController.confirmOrderPayment);
 
 export default router;

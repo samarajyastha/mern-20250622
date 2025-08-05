@@ -9,11 +9,15 @@ const getProducts = async (req, res) => {
 
 const getProductById = async (req, res) => {
   // Request params
-  const id = req.params.id;
+  try {
+    const id = req.params.id;
 
-  const product = await productService.getProductById(id);
+    const product = await productService.getProductById(id);
 
-  res.json(product);
+    res.json(product);
+  } catch (error) {
+    res.status(error.statusCode || 500).send(error.message);
+  }
 };
 
 const createProduct = async (req, res) => {
@@ -26,7 +30,7 @@ const createProduct = async (req, res) => {
 
     res.status(201).json(data);
   } catch (error) {
-    res.status(500).send(error.message);
+    res.status(error.statusCode || 500).send(error.message);
   }
 };
 
@@ -38,7 +42,7 @@ const updateProduct = async (req, res) => {
       id,
       req.body,
       req.files,
-      req.user._id
+      req.user
     );
 
     res.status(201).json(data);
@@ -49,9 +53,10 @@ const updateProduct = async (req, res) => {
 
 const deleteProduct = async (req, res) => {
   const id = req.params.id;
+  const user = req.user;
 
   try {
-    await productService.deleteProduct(id, req.user._id);
+    await productService.deleteProduct(id, user);
 
     res.send(`Product deleted successfully with id: ${id}`);
   } catch (error) {

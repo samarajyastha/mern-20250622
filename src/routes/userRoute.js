@@ -15,7 +15,7 @@ router.get("/", roleBasedAuth(ADMIN), userController.getUsers);
 router.get("/:id", roleBasedAuth(ADMIN), userController.getUserById);
 
 // URL: /api/users/:id
-router.put("/:id", roleBasedAuth(ADMIN), userController.updateUser);
+router.put("/:id", userController.updateUser);
 
 // URL: /api/users/:id
 router.delete("/:id", roleBasedAuth(ADMIN), userController.deleteUser);

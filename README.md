@@ -321,9 +321,30 @@ Server ------ Response -----> Browser
 5. Includes new password, confirm password with token
 6. Update the password
 
+# Semantics
+- Code readability
+- Code formatting
+- File and folder structure
+- File and folder naming
+  - In Javascript use either camelCase or kebab-case
+  - For js files use camelCase
+  - For HTML, CSS files use kebab-case
+  - Always use noun
+- For variables use noun
+- For functions/methods use verb
+- Check for singular/plural
+- Routes should be kebab-case with all lowercase texts
+- Add lines above and below if/else, loop, function call
+
+# Debugging
+- Process of finding errors 
+- Steps to debug
+  1. Check the root app.js file
+  2. Check the routes (check spelling, route orders)
+  3. Check the controllers, check spelling, check params, arguments
+  4. Check the service, check spelling, check params, arguments
+
 # Todos
-- Sematic coding
-- Debugging
 - AI integration
 - Multi vendor system
 - Deployment
