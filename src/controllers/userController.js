@@ -65,6 +65,21 @@ const updateProfileImage = async (req, res) => {
   }
 };
 
+const createMerchant = async (req, res) => {
+  const userId = req.body.userId;
+
+  try {
+    if (!userId)
+      return res.status(400).send("Merchant id is required.");
+
+    const data = await userService.createMerchant(userId);
+
+    res.json(data);
+  } catch (error) {
+    res.status(error.statusCode || 500).send(error.message);
+  }
+};
+
 export default {
   createUser,
   getUsers,
@@ -72,4 +87,5 @@ export default {
   updateUser,
   deleteUser,
   updateProfileImage,
+  createMerchant,
 };

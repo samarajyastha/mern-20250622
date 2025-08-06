@@ -22,4 +22,6 @@ router.delete("/:id", roleBasedAuth(ADMIN), userController.deleteUser);
 
 router.patch("/:id/profile-image", userController.updateProfileImage);
 
+router.post("/merchant", roleBasedAuth(ADMIN), userController.createMerchant);
+
 export default router;
