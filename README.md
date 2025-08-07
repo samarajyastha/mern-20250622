@@ -350,7 +350,7 @@ Server ------ Response -----> Browser
 # Multi vendor system
 Every merchant should be able to fetch:
   1. List of products created by them
-  2. Orders made on their product (TODO)
+  2. Orders made on their product
 
 They should be able to update/delete their product.
 
