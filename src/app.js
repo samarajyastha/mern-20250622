@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
   res.json({
     name: config.name,
     port: config.port,
-    status: "OK",
+    status: "Running...",
     version: config.version,
   });
 });
