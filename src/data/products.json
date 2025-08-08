@@ -1,0 +1,80 @@
+[
+  {
+    "brand": "Baskins & Robbins",
+    "category": "Desserts",
+    "id": "67eab3203e295f97caf8ae4e",
+    "name": "Strawberry Icecream",
+    "price": 500
+  },
+  {
+    "brand": "Apple",
+    "category": "Smartphones",
+    "id": "67ed5844d65d5aa5646c4753",
+    "name": "Iphone 14",
+    "price": 128998,
+    "rating": 5
+  },
+  {
+    "brand": "Samsung",
+    "category": "Smartphones",
+    "id": "67ed5883d65d5aa5646c4761",
+    "name": "Samsung Galaxy s24",
+    "price": 185000,
+    "createdAt": "2025-01-01"
+  },
+  {
+    "brand": "Dell",
+    "category": "Monitors",
+    "id": "680ba1f0ebf73fbfc7753114",
+    "name": "Dell 24 Inch Monitor with IPS display 144 Hz",
+    "price": 30000
+  },
+  {
+    "brand": "Acer",
+    "category": "Laptops",
+    "id": "6824b96262e271fe4f5615a0",
+    "name": "Acer Predator Helios 900",
+    "price": 300000
+  },
+  {
+    "brand": "Cetaphil",
+    "category": "Cosmetics",
+    "id": "6824bdd65f32b41b09e30fa4",
+    "name": "Face Serum",
+    "price": 1498
+  },
+  {
+    "brand": "Loreal",
+    "category": "Cosmetics",
+    "id": "68260ce2c2d98ebffcc0d523",
+    "name": "Loreal Shampoo 500ml Anti dandruff",
+    "price": 2500
+  },
+  {
+    "brand": "Lenovo",
+    "category": "Laptops",
+    "id": "6829f5c59aa9ea1a53e8aafa",
+    "name": "Lenovo Legion I7, 14th gen, 16GB RAM, 1TB SSD",
+    "price": 185000
+  },
+  {
+    "brand": "Secretlab",
+    "category": "Electronics",
+    "id": "682ef34f2cda2d8b4f4d79ce",
+    "name": "Gaming Chair",
+    "price": 30000
+  },
+  {
+    "brand": "Cetaphil",
+    "category": "Cosmetics",
+    "id": "68331caca7f0b981f3b7697a",
+    "name": "Cetaphil Face Serum - 500 mg",
+    "price": 1796
+  },
+  {
+    "name": "Fantech Gaming Mouse X9 Thor",
+    "brand": "Fantech",
+    "category": "Electronics",
+    "price": 1800
+  }
+]
