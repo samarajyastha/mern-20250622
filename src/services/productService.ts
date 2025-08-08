@@ -4,7 +4,13 @@ import Product from "../models/Product.js";
 import uploadFile from "../utils/file.js";
 import promptGemini from "../utils/gemini.js";
 
-const createProduct = async (data, files, createdBy) => {
+import type { ProductQuery, Product as ProductType, User } from "../types";
+
+const createProduct = async (
+  data: ProductType,
+  files: [],
+  createdBy: string
+) => {
   const uploadedFiles = await uploadFile(files);
 
   const promptMessage = PRODUCT_DESCRIPTION_PROMPT.replace("%s", data.name)
@@ -16,14 +22,14 @@ const createProduct = async (data, files, createdBy) => {
   const createdProduct = await Product.create({
     ...data,
     createdBy,
-    imageUrls: uploadedFiles.map((item) => item?.url),
+    imageUrls: uploadedFiles.map((item: Record<string, unknown>) => item?.url),
     description,
   });
 
   return createdProduct;
 };
 
-const deleteProduct = async (id, user) => {
+const deleteProduct = async (id: string, user: User) => {
   const product = await getProductById(id);
 
   if (product.createdBy != user._id && !user.roles.includes(ADMIN)) {
@@ -36,7 +42,7 @@ const deleteProduct = async (id, user) => {
   await Product.findByIdAndDelete(id);
 };
 
-const getProductById = async (id) => {
+const getProductById = async (id: string): Promise<ProductType> => {
   const product = await Product.findById(id);
 
   if (!product) {
@@ -55,11 +61,11 @@ const getProductById = async (id) => {
   return product;
 };
 
-const getProducts = async (query) => {
+const getProducts = async (query: ProductQuery): Promise<ProductType[]> => {
   const { brands, category, min, max, limit, name, offset, createdBy } = query;
 
   const sort = JSON.parse(query.sort || "{}");
-  const filters = {};
+  const filters: any = {};
 
   if (brands) filters.brand = { $in: brands.split(",") };
   if (category) filters.category = category;
@@ -77,7 +83,12 @@ const getProducts = async (query) => {
   return products;
 };
 
-const updateProduct = async (id, data, files, user) => {
+const updateProduct = async (
+  id: string,
+  data: ProductType,
+  files: [],
+  user: User
+) => {
   const product = await getProductById(id);
 
   if (product.createdBy != user._id && !user.roles.includes(ADMIN)) {

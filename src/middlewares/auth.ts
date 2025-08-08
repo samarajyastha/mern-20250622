@@ -1,6 +1,6 @@
 import { verifyJWT } from "../utils/jwt.js";
 
-const auth = async (req, res, next) => {
+const auth = async (req: Request, res: Response, next) => {
   const cookie = req.headers.cookie;
 
   if (!cookie) return res.status(401).send("User not authenticated.");

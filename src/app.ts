@@ -23,7 +23,7 @@ connectCloudinary();
 app.use(bodyParser.json());
 app.use(logger);
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
   res.json({
     name: config.name,
     port: config.port,

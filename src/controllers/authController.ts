@@ -1,7 +1,9 @@
-import authService from "../services/authService.js";
-import { createJWT } from "../utils/jwt.js";
+import authService from "../services/authService";
+import { createJWT } from "../utils/jwt";
 
-const login = async (req, res) => {
+import type { Request, Response } from "express";
+
+const login = async (req: Request, res: Response) => {
   const input = req.body;
 
   try {
@@ -24,12 +26,12 @@ const login = async (req, res) => {
     res.cookie("authToken", authToken, { maxAge: 86400 * 1000 });
 
     res.json(data);
-  } catch (error) {
+  } catch (error: any) {
     res.status(error.statusCode || 500).send(error.message);
   }
 };
 
-const register = async (req, res) => {
+const register = async (req: Request, res: Response) => {
   const input = req.body;
 
   try {
@@ -52,12 +54,12 @@ const register = async (req, res) => {
     res.cookie("authToken", authToken, { maxAge: 86400 * 1000 });
 
     res.status(201).json(data);
-  } catch (error) {
+  } catch (error: any) {
     res.status(error.statusCode || 500).send(error.message);
   }
 };
 
-const forgotPassword = async (req, res) => {
+const forgotPassword = async (req: Request, res: Response) => {
   const input = req.body;
 
   try {
@@ -68,12 +70,12 @@ const forgotPassword = async (req, res) => {
     const data = await authService.forgotPassword(input.email);
 
     res.json(data);
-  } catch (error) {
+  } catch (error: any) {
     res.status(error.statusCode || 500).send(error.message);
   }
 };
 
-const resetPassword = async (req, res) => {
+const resetPassword = async (req: Request, res: Response) => {
   const input = req.body;
   const query = req.query;
 
@@ -101,12 +103,12 @@ const resetPassword = async (req, res) => {
     );
 
     res.status(201).json(data);
-  } catch (error) {
+  } catch (error: any) {
     res.status(error.statusCode || 500).send(error.message);
   }
 };
 
-const logout = async (req, res) => {
+const logout = async (req: Request, res: Response) => {
   res.clearCookie("authToken");
 
   res.json({ message: "Logout successful" });

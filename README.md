@@ -354,7 +354,10 @@ Every merchant should be able to fetch:
 
 They should be able to update/delete their product.
 
+# TypeScript
+
+- JavaScript's superset with types OR type system included in JavaScript
+- 
+
 # Todos
-- Deployment
-- Typescript
 - SMS

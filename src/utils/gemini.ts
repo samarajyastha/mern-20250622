@@ -1,7 +1,7 @@
 import axios from "axios";
 import config from "../config/config.js";
 
-const promptGemini = async (promptMessage) => {
+const promptGemini = async (promptMessage: string) => {
   const response = await axios.post(
     config.gemini.url,
     {

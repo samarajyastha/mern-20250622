@@ -1,5 +1,5 @@
 const roleBasedAuth = (role) => {
-  return (req, res, next) => {
+  return (req: Request, res: Response, next) => {
     if (req.user.roles.includes(role)) return next();
 
     res.status(403).send("Access denied.");

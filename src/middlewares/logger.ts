@@ -1,4 +1,4 @@
-const logger = (req, res, next) => {
+const logger = (req: Request, res: Response, next) => {
   const method = req.method;
   const url = req.originalUrl;
 

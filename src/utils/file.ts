@@ -2,7 +2,7 @@ import { v2 as cloudinary } from "cloudinary";
 
 const CLOUDINARY_FOLDER = "mern-20250622";
 
-async function uploadFile(files) {
+async function uploadFile(files: any[]) {
   const uploadResults = [];
 
   for (const file of files) {

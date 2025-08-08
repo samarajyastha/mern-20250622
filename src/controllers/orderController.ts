@@ -1,36 +1,37 @@
-import orderService from "../services/orderService.js";
+import orderService from "../services/orderService";
+import type { Request, Response } from "express";
 
-const getOrders = async (req, res) => {
+const getOrders = async (req: Request, res: Response) => {
   try {
     const data = await orderService.getOrders();
 
     res.json(data);
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).send(error.message);
   }
 };
 
-const getOrdersByUser = async (req, res) => {
+const getOrdersByUser = async (req: Request, res: Response) => {
   try {
     const data = await orderService.getOrdersByUser(req.user._id);
 
     res.json(data);
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).send(error.message);
   }
 };
 
-const getOrderById = async (req, res) => {
+const getOrderById = async (req: Request, res: Response) => {
   try {
     const data = await orderService.getOrderById(req.params.id);
 
     res.json(data);
-  } catch (error) {
+  } catch (error: any) {
     res.status(error.statusCode || 500).send(error.message);
   }
 };
 
-const createOrder = async (req, res) => {
+const createOrder = async (req: Request, res: Response) => {
   const input = req.body;
 
   if (!input.orderItems || !input.orderItems.length) {
@@ -41,12 +42,12 @@ const createOrder = async (req, res) => {
     const data = await orderService.createOrder(req.body, req.user);
 
     res.json(data);
-  } catch (error) {
+  } catch (error: any) {
     res.status(error.statusCode || 500).send(error.message);
   }
 };
 
-const updateOrder = async (req, res) => {
+const updateOrder = async (req: Request, res: Response) => {
   try {
     const data = await orderService.updateOrder(
       req.params.id,
@@ -55,34 +56,34 @@ const updateOrder = async (req, res) => {
     );
 
     res.json(data);
-  } catch (error) {
+  } catch (error: any) {
     res.status(error.statusCode || 500).send(error.message);
   }
 };
 
-const deleteOrder = async (req, res) => {
+const deleteOrder = async (req: Request, res: Response) => {
   try {
     await orderService.deleteOrder(req.params.id, req.user);
 
     res.send("Order deleted successfully.");
-  } catch (error) {
+  } catch (error: any) {
     res.status(error.statusCode || 500).send(error.message);
   }
 };
 
-const orderPaymentViaKhalti = async (req, res) => {
+const orderPaymentViaKhalti = async (req: Request, res: Response) => {
   const id = req.params.id;
 
   try {
     const data = await orderService.orderPaymentViaKhalti(id, req.user);
 
     res.json(data);
-  } catch (error) {
+  } catch (error: any) {
     res.status(error.statusCode || 500).send(error.message);
   }
 };
 
-const confirmOrderPayment = async (req, res) => {
+const confirmOrderPayment = async (req: Request, res: Response) => {
   const id = req.params.id;
 
   try {
@@ -93,17 +94,17 @@ const confirmOrderPayment = async (req, res) => {
     );
 
     res.json(data);
-  } catch (error) {
+  } catch (error: any) {
     res.status(error.statusCode || 500).send(error.message);
   }
 };
 
-const getOrdersOfMerchant = async (req, res) => {
+const getOrdersOfMerchant = async (req: Request, res: Response) => {
   try {
     const data = await orderService.getOrdersOfMerchant(req.user._id);
 
     res.json(data);
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).send(error.message);
   }
 };
