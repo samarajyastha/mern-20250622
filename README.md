@@ -13,13 +13,13 @@
 
 - Light weight copy or real DOM
 - Whenever state changes:
-    - React updates the virtual DOM
-    - Compares with the previous DOM (Diffing)
-    - Updates only the changed parts in the Real DOM (Reconciliation)
+  - React updates the virtual DOM
+  - Compares with the previous DOM (Diffing)
+  - Updates only the changed parts in the Real DOM (Reconciliation)
 - Faster rendering
 - Better performance
 
-## Component 
+## Component
 
 - UI block
 - Reusable
@@ -27,6 +27,17 @@
 - Stateful component: State/UI can be updated
 - Stateless component: State can be updated, UI cannot be changed.
 - Hooks
+
+## JSX
+
+- JS/HTML code
+
+## Props
+
+## State
+
+- Object (mutable/changeable)
+- State is updated on user interaction, event triggers or API calls
 
 ## Hooks
 
@@ -38,12 +49,3 @@
 2. useEffect
 3. useRef
 4. Custom hooks
-
-## State
-
-- Object (mutable/changeable)
-- State is updated on user interaction, event triggers or API calls
-
-## JSX
-
-- JS/HTML code
