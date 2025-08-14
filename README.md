@@ -8,6 +8,7 @@
 - Huge community
 - Maintained by Facebook
 - Job opportunities
+- One way data flow
 
 ## Virtual DOM
 
@@ -34,10 +35,14 @@
 
 ## Props
 
+- Properties of a component
+- Similar to HTML element attributes
+
 ## State
 
 - Object (mutable/changeable)
 - State is updated on user interaction, event triggers or API calls
+- Whenever state value changes, UI is re-rendered
 
 ## Hooks
 
@@ -45,7 +50,21 @@
 - It enables us to make functional component stateful.
 - Using hooks, we can implement state management in Functional component.
 
-1. useState
-2. useEffect
-3. useRef
+1. useState: local state management
+2. useEffect: side effect
+3. useRef: accessing DOM elements
 4. Custom hooks
+
+## Lifecycle methods
+
+1. Component create
+2. Component update
+3. Component delete
+
+componentDidMount
+componentDidUpdate
+componentWillUnmount
+
+### Props drilling
+
+## Redux
