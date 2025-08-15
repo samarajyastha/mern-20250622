@@ -1,9 +1,10 @@
 import ComponentC from "./ComponentC";
 
-const ComponentB = ({ numB = 0 }) => {
+const ComponentB = () => {
   return (
-    <div>
-      <ComponentC numC={numB} />
+    <div style={{ border: "1px solid", padding: "1rem" }}>
+      <h2>Component B</h2>
+      <ComponentC />
     </div>
   );
 };

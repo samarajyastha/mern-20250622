@@ -2,8 +2,7 @@ import Card from "./Card";
 import "./App.css";
 import { useEffect, useRef, useState } from "react";
 import ComponentA from "./components/ComponentA";
-import ComponentB from "./components/ComponentB";
-import ComponentC from "./components/ComponentC";
+import ProductsTable from "./components/ProductsTable";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -26,9 +25,11 @@ function App() {
 
   return (
     <div>
+      <ProductsTable />
+
       <span>count: {count}</span>
 
-      <ComponentA numA={count} />
+      <ComponentA />
       <hr />
       <button onClick={() => setCount(count + 1)}>click</button>
 
