@@ -76,3 +76,6 @@ The core concepts of redux:
 3. Reducer: Binds store and action, stores state data, responsible for UI transition
 
 ## React Router
+
+- Route is a URL endpoint, that defines which component/page to load/show on URL match
+
