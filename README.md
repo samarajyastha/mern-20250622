@@ -1,138 +1,72 @@
-# MERN E-commerce site (MongoDB, Express, React, Node)
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## HTML/CSS/JS/Tailwind
-- Design e-commerce website
-- Responsive
-- Light & Dark modes
-- Tailwind css for styling
-- DOM manipulation
+## Getting Started
 
-## API - Node.js with Express.js (Typescript)
-- Create server
-- Authentication & Authorization
-- Product Model (CRUD)
-- User Model
-- Order Model
-- Payment Model
-- Khalti payment system/Stripe
-- Cloudinary for storage (images)
-- Gemini
+First, run the development server:
 
-## Database - MongoDB, Mongoose ORM
-- Shell
-- Compass
-- Altas
-
-## Webapp - React with Next.js (Typescript)
-- Basics react
-- Build project using Next.js
-- Connect with API
-
-## HTML (Hypertext Markup language)
-
-for eg: <a href="www.google.com">Google</a>
-
-1. HTML Structure 
-    - <html></html>
-    - <head></head>
-    - <body></body>
-    - <title></title>
-2. Text elements
-    - h1 to h6
-    - p
-    - strong
-    - sub
-    - sup
-    - em
-    - pre
-3. Lists
-    - ol
-    - ul
-    - li
-4. Links, images, videos
-    - <a href="url"></a>
-    - <img src="">
-    - <video src="">
-5. Block and inline elements
-    - Block: Covers the full width
-    - Inline: Covers required content width
-6. Table
-    - table
-    - tr
-    - th
-    - td
-    - thead,tbody,tfoot
-    - rowspan,colspan
-7. Forms
-    - input:text
-    - input:number
-    - input:email
-    - input:password
-    - input:tel
-    - input:date
-    - input:time
-    - input:range
-    - input:color
-    - input:file
-    - input:radio
-    - input:checkbox
-    - select, option
-    - textarea
-    - form
-    - attributes: type, name, id, for, checked, min, max, minlength, required, placeholder, value, selected, disabled
-    - fieldset,legend
-8. Embedding - iframe
-9. Semantic elements
-
-## CSS (Cascading style sheet)
-
-Syntax: 
-
-```
-<selector> {
-    property: value;
-    ...
-}
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-### Selectors
-- Element: element name, less priority
-- Class (mostly used): .<class-name>, more priority than element but less than id
-- Id: #<id-value>, top-priority
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### CSS Usage
-- Inline
-- Internal
-- External
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-Class vs Id
-- Class is an attribute(property) | Id is also attribute.
-- Class can be named multiple times | Id can be named only once.
-- Class is generally used for CSS | Id is generally used for JS.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-### Properties
-- color
-- background-color
-- text
-- font
-- box-model
-- display
-- flex
-- list
-- pseudo
-- units
-- overflow
-- table
-- form
-- position
-- background image
-- gridbox
-- icon
-- responsive design
-- transform
-- animation
+## Learn More
 
-## Tailwind CSS
+To learn more about Next.js, take a look at the following resources:
 
-- CSS Framework
-- Collection of css classes
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+# Next.js
+
+- React.js full-stack web development framework.
+- In addition to react that builds the UI, next.js also provides features like optimization, rendering, data fetching etc.
+- Opinionated framework (file, folder structure conventions)
+
+## Features
+1. Routing - File based routing
+2. API routes
+3. Rendering: SSR, SSG, CSR
+4. Data fetching/File system
+5. Optimization: Image, file optimization
+6. Styling
+
+## React server component
+
+- Architecture introduced by react team. Types:
+1. Server components
+2. Client components
+
+### Server components
+
+- All React components in Next.js are treated as server components.
+- These components can perform server side tasks like data fetching, files read, database data fetching, async tasks.
+- Cannot use react hooks, events, user interaction
+
+### Client components
+
+- Can use react hooks, events, user interaction
+- Traditional react components
+- Use the directive `use client` at the top of component file
+
+## Routing
+
+- File based routing
