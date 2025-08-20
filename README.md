@@ -106,4 +106,35 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 7. Private folders
 
-- /src/app/_components
+- /src/app/\_components
+
+## Layouts
+
+- UI component that is shared among different pages
+- `layout.js` or `layout.tsx`
+
+## Nested layouts
+
+- /src/app/products/layout.js
+
+## Files (Special files of next.js)
+
+- page.js
+- layout.js
+- not-found.js
+- loading.js
+- error.js // always client component
+
+## Link
+
+## Params & searchParams
+
+- params: dynamic route params => available on page.js & layout.js
+- searchParams: query => available on page.js
+
+## Additional packages
+
+- React hook form
+- React icons
+- React toastify
+- Tailwind (CSS Framework)/Flowbite
