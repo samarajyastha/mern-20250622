@@ -1,3 +1,4 @@
+import { HOME_ROUTE } from "@/constants/routes";
 import Link from "next/link";
 
 const NotFoundPage = () => {
@@ -7,7 +8,7 @@ const NotFoundPage = () => {
         4<span className="text-9xl text-red-500">0</span>4
       </h2>
       <h1 className="text-4xl font-bold ">Page Not Found</h1>
-      <Link href="/" className="mt-4 text-blue-500 hover:underline">
+      <Link href={HOME_ROUTE} className="mt-4 text-blue-500 hover:underline">
         Go back to Home
       </Link>
     </div>

@@ -1,4 +1,3 @@
-// React server component
 const Home = async () => {
   return (
     <div>

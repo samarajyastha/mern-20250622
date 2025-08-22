@@ -1,5 +1,10 @@
 import ProductCard from "./_components/Card";
 
+export const metadata = {
+  title: "Products",
+  keywords: "Best online electronics products",
+};
+
 const Products = async ({ searchParams }) => {
   const query = await searchParams;
 
