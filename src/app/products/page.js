@@ -1,3 +1,4 @@
+import { getProducts } from "@/api/products";
 import ProductCard from "./_components/Card";
 
 export const metadata = {
@@ -5,21 +6,20 @@ export const metadata = {
   keywords: "Best online electronics products",
 };
 
-const Products = async ({ searchParams }) => {
-  const query = await searchParams;
+const Products = async () => {
+  const response = await getProducts();
 
-  const products = await fetch(
-    `https://node-20250302.vercel.app/api/products`
-  ).then((res) => res?.json());
+  const products = response.data;
 
   return (
-    <div className="container mx-auto py-5 px-4">
-      <div className="grid grid-cols-4 gap-3">
+    <>
+      <h1 className="text-4xl py-5 font-medium">Popular Products</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         {products.map((product, index) => (
           <ProductCard key={index} product={product} />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

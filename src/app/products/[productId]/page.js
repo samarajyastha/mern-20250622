@@ -1,19 +1,11 @@
-async function getProductById(productId) {
-  const product = await fetch(
-    `https://node-20250302.vercel.app/api/products/${productId}`
-  )
-    .then((res) => res?.json())
-    .catch((error) => {
-      throw new Error("Product not found!");
-    });
-
-  return product;
-}
+import { getProductById } from "@/api/products";
 
 export const generateMetadata = async ({ params }) => {
   const productId = (await params).productId;
 
-  const product = await getProductById(productId);
+  const response = await getProductById(productId);
+
+  const product = response.data;
 
   return {
     title: product?.name,
@@ -21,11 +13,12 @@ export const generateMetadata = async ({ params }) => {
   };
 };
 
-const ProductDetails = async ({ params, searchParams }) => {
+const ProductDetails = async ({ params }) => {
   const productId = (await params).productId;
-  const query = await searchParams;
 
-  const product = await getProductById(productId);
+  const response = await getProductById(productId);
+
+  const product = response.data;
 
   return (
     <div>

@@ -1,6 +1,4 @@
-const ProductByIdLayout = async ({ children, params }) => {
-  console.log(await params);
-
+const ProductByIdLayout = async ({ children }) => {
   return <div>{children}</div>;
 };
 

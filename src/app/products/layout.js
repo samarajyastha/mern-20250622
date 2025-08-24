@@ -1,8 +1,9 @@
 const ProductsLayout = async ({ children }) => {
   return (
-    <div>
-      {children}
-      <h1 className="text-3xl py-5">Related products</h1>
+    <div className="bg-slate-100">
+      <div className="container mx-auto px-4 py-10">
+        <div className="min-h-screen">{children}</div>
+      </div>
     </div>
   );
 };

@@ -1,30 +1,39 @@
+import Image from "next/image";
+import imagePlaceholder from "@/assets/images/products/placeholder.png";
+
 const LoadingCard = () => {
   return (
-    <div className="border border-gray-100 shadow-md py-3 px-4 rounded-xl animate-pulse duration-50 ease-in-out">
-      <div className="w-full h-10 bg-gray-400 rounded-md"></div>
-      <div className="flex items-center gap-2 text-sm py-2">
-        <span className="bg-green-200 px-3 rounded w-20 h-5"></span>
-        <span className="bg-blue-200 px-3 rounded w-20 h-5"></span>
+    <div className="bg-white border border-gray-100 shadow-md rounded-xl animate-pulse duration-50 ease-in-out">
+      <Image
+        src={imagePlaceholder}
+        className="w-full h-48 object-cover rounded-t-lg"
+        alt=""
+        height={150}
+        width={250}
+      />
+      <div className="px-4 py-3">
+        <div className="w-full h-8 bg-gray-700"></div>
+        <div className="w-1/3 h-4 bg-yellow-400 my-2"></div>
+        <div className="flex items-end gap-2 text-sm">
+          <span className="bg-primary/80 px-3 w-1/2 h-6"></span>
+          <span className="bg-gray-400 px-3 w-1/3 h-5"></span>
+        </div>
       </div>
-      <p className="h-10 w-30 py-2 rounded-md bg-gray-300 mb-5"></p>
-      <button className="px-3 py-1 w-40 h-8 rounded-md bg-blue-600 text-white shadow"></button>
     </div>
   );
 };
 
 const ProductsLoader = () => {
   return (
-    <div className="container mx-auto py-5 px-4">
-      <div className="grid grid-cols-4 gap-3">
-        <LoadingCard />
-        <LoadingCard />
-        <LoadingCard />
-        <LoadingCard />
-        <LoadingCard />
-        <LoadingCard />
-        <LoadingCard />
-        <LoadingCard />
-      </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      <LoadingCard />
+      <LoadingCard />
+      <LoadingCard />
+      <LoadingCard />
+      <LoadingCard />
+      <LoadingCard />
+      <LoadingCard />
+      <LoadingCard />
     </div>
   );
 };
