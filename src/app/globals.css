@@ -16,12 +16,14 @@
   --color-secondary: var(--secondary);
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
+
+@custom-variant dark (&:is(.dark *));
 
 /* body {
   background: var(--background);
