@@ -23,7 +23,7 @@ const login = async (req, res) => {
 
     res.cookie("authToken", authToken, { maxAge: 86400 * 1000 });
 
-    res.json(data);
+    res.json({ ...data, authToken });
   } catch (error) {
     res.status(error.statusCode || 500).send(error.message);
   }
@@ -51,7 +51,7 @@ const register = async (req, res) => {
 
     res.cookie("authToken", authToken, { maxAge: 86400 * 1000 });
 
-    res.status(201).json(data);
+    res.status(201).json({ ...data, authToken });
   } catch (error) {
     res.status(error.statusCode || 500).send(error.message);
   }
