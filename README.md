@@ -133,6 +133,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - searchParams: query => available on page.js
 
 ## Metadata
+
 - Metadata api is used to define metadata of page.
 - page.js / layout.js
 - Useful for search engines (SEO)
@@ -145,3 +146,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - React icons
 - React toastify
 - Tailwind (CSS Framework)/Flowbite
+
+## Auth
+
+Login -> token -> store (local storage)
+if authToken -> User is logged in -> use this authToken in api request
+
+- local storage: 5MB: Browser: data is stored forever
+- session storage: 5MB: Browser: data is cleared on tab closed
+- cookie storage: 4KB: Browser and server: expiry date can be set

@@ -8,4 +8,8 @@ async function login({ email, password }) {
   });
 }
 
-export { login };
+async function signup(data) {
+  return await axios.post(`${config.apiUrl}/api/auth/register`, data);
+}
+
+export { login, signup };

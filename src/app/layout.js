@@ -1,6 +1,7 @@
 import config from "@/config";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { ToastContainer } from "react-toastify";
 
 import "./globals.css";
 
@@ -19,8 +20,9 @@ function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main>{children}</main>
         <Footer />
+        <ToastContainer />
       </body>
     </html>
   );

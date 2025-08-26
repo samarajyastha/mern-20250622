@@ -2,9 +2,12 @@
 
 import { login } from "@/api/auth";
 import { EMAIL_REGEX } from "@/constants/regex";
-import { REGISTER_ROUTE } from "@/constants/routes";
+import { HOME_ROUTE, REGISTER_ROUTE } from "@/constants/routes";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import PasswordInput from "../_components/PasswordInput";
 
 const Login = () => {
   const {
@@ -13,13 +16,20 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  const router = useRouter();
+
   async function submitForm(data) {
     try {
       const response = await login(data);
 
-      console.log(response);
+      localStorage.setItem("authToken", response.data?.authToken);
+
+      // programmatic navigation
+      router.push(HOME_ROUTE);
     } catch (error) {
-      console.log(error);
+      toast.error(error.response?.data, {
+        autoClose: 1000,
+      });
     }
   }
 
@@ -61,11 +71,8 @@ const Login = () => {
           >
             Password
           </label>
-          <input
-            type="password"
+          <PasswordInput
             id="password"
-            placeholder="••••••••"
-            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             {...register("password", {
               required: "Password is required.",
               minLength: {
