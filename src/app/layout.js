@@ -1,9 +1,11 @@
+import { ToastContainer } from "react-toastify";
+import AppProvider from "@/redux/provider";
 import config from "@/config";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { ToastContainer } from "react-toastify";
 
 import "./globals.css";
+import MainLayout from "@/layouts/MainLayout";
 
 export const metadata = {
   title: {
@@ -15,14 +17,17 @@ export const metadata = {
 };
 
 function RootLayout({ children }) {
-  console.log(config.appName);
   return (
     <html lang="en">
       <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <ToastContainer />
+        <AppProvider>
+          <MainLayout>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+            <ToastContainer />
+          </MainLayout>
+        </AppProvider>
       </body>
     </html>
   );

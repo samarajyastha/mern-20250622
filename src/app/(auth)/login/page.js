@@ -1,12 +1,14 @@
 "use client";
 
-import { login } from "@/api/auth";
 import { EMAIL_REGEX } from "@/constants/regex";
 import { HOME_ROUTE, REGISTER_ROUTE } from "@/constants/routes";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
+import { loginUser } from "@/redux/auth/authActions";
 import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 import PasswordInput from "../_components/PasswordInput";
 
 const Login = () => {
@@ -18,23 +20,28 @@ const Login = () => {
 
   const router = useRouter();
 
-  async function submitForm(data) {
-    try {
-      const response = await login(data);
+  const dispatch = useDispatch();
 
-      localStorage.setItem("authToken", response.data?.authToken);
+  const { user, error } = useSelector((state) => state.auth);
 
-      // programmatic navigation
-      router.push(HOME_ROUTE);
-    } catch (error) {
-      toast.error(error.response?.data, {
-        autoClose: 1000,
-      });
-    }
+  function submitForm(data) {
+    dispatch(loginUser(data));
   }
 
+  useEffect(() => {
+    if (error) {
+      toast.error(error, {
+        autoClose: 1000,
+      });
+
+      return;
+    }
+
+    if (user) router.push(HOME_ROUTE);
+  }, [user, error, router]);
+
   return (
-    <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+    <div className="p-6 space-y-4 md:space-y-6 sm:p-8 dark:bg-slate-700 rounded-2xl">
       <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
         Sign in to your account
       </h1>

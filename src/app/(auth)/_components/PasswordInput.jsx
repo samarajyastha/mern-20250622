@@ -16,7 +16,7 @@ const PasswordInput = (props) => {
       />
       <button
         type="button"
-        className="absolute top-3 right-2 pt-0.5 px-1"
+        className="absolute top-3 right-2 pt-0.5 px-1 dark:text-white"
         onClick={() => setShowPassword(!showPassword)}
       >
         {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}
