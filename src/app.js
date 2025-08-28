@@ -21,7 +21,11 @@ const upload = multer({ storage: multer.memoryStorage() });
 connectDB();
 connectCloudinary();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: config.appUrl,
+  })
+);
 
 app.use(bodyParser.json());
 app.use(logger);
