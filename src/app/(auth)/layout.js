@@ -1,8 +1,21 @@
+"use client";
+import { HOME_ROUTE } from "@/constants/routes";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
 import Logo from "@/components/Logo";
 
 function AuthLayout({ children }) {
+  const { user } = useSelector((state) => state.auth);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user) router.push(HOME_ROUTE);
+  }, [user, router]);
+
   return (
-    <section className="flex py-20 md:items-center justify-center bg-slate-100 dark:bg-slate-800 border-b border-slate-600">
+    <section className="flex py-20 md:items-center justify-center bg-slate-100 dark:bg-slate-800">
       <div className="container mx-auto px-4">
         <div className="flex justify-start items-center flex-col">
           <Logo className="text-4xl mb-8" />

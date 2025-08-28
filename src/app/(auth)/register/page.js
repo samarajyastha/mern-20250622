@@ -1,13 +1,15 @@
 "use client";
 
 import { EMAIL_REGEX } from "@/constants/regex";
-import { HOME_ROUTE, LOGIN_ROUTE } from "@/constants/routes";
-import { signup } from "@/api/auth";
+import { LOGIN_ROUTE } from "@/constants/routes";
+import { registerUser } from "@/redux/auth/authActions";
+import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import PasswordInput from "../_components/PasswordInput";
-import { toast } from "react-toastify";
+import Button from "@/components/Button";
 
 const Register = () => {
   const {
@@ -19,11 +21,13 @@ const Register = () => {
 
   const password = watch("password");
 
-  const router = useRouter();
+  const { error, loading } = useSelector((state) => state.auth);
 
-  async function submitForm(data) {
-    try {
-      const response = await signup({
+  const dispatch = useDispatch();
+
+  function submitForm(data) {
+    dispatch(
+      registerUser({
         name: data.name,
         email: data.email,
         password: data.password,
@@ -33,18 +37,17 @@ const Register = () => {
           city: data.city,
           province: data.province,
         },
-      });
+      })
+    );
+  }
 
-      localStorage.setItem("authToken", response.data?.authToken);
-
-      // programmatic navigation
-      router.push(HOME_ROUTE);
-    } catch (error) {
-      toast.error(error.response?.data, {
+  useEffect(() => {
+    if (error) {
+      toast.error(error, {
         autoClose: 1000,
       });
     }
-  }
+  }, [error]);
 
   return (
     <div className="p-6 space-y-4 md:space-y-6 sm:p-8 dark:bg-slate-700 rounded-2xl">
@@ -224,12 +227,9 @@ const Register = () => {
             </label>
           </div>
         </div>
-        <button
-          type="submit"
-          className="w-full text-white bg-primary hover:bg-primary/90 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-        >
-          Create an account
-        </button>
+
+        <Button loading={loading} label="Create an account" />
+
         <p className="text-sm font-light text-gray-500 dark:text-gray-400">
           Already have an account?{" "}
           <Link

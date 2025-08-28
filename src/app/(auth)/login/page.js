@@ -1,15 +1,15 @@
 "use client";
 
 import { EMAIL_REGEX } from "@/constants/regex";
-import { HOME_ROUTE, REGISTER_ROUTE } from "@/constants/routes";
+import { REGISTER_ROUTE } from "@/constants/routes";
 import { loginUser } from "@/redux/auth/authActions";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import PasswordInput from "../_components/PasswordInput";
+import Button from "@/components/Button";
 
 const Login = () => {
   const {
@@ -18,11 +18,9 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const router = useRouter();
-
   const dispatch = useDispatch();
 
-  const { user, error } = useSelector((state) => state.auth);
+  const { error, loading } = useSelector((state) => state.auth);
 
   function submitForm(data) {
     dispatch(loginUser(data));
@@ -33,12 +31,8 @@ const Login = () => {
       toast.error(error, {
         autoClose: 1000,
       });
-
-      return;
     }
-
-    if (user) router.push(HOME_ROUTE);
-  }, [user, error, router]);
+  }, [error]);
 
   return (
     <div className="p-6 space-y-4 md:space-y-6 sm:p-8 dark:bg-slate-700 rounded-2xl">
@@ -115,12 +109,7 @@ const Login = () => {
             Forgot password?
           </Link>
         </div>
-        <button
-          type="submit"
-          className="w-full text-white bg-primary hover:bg-primary/90 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary/90 dark:focus:ring-primary-800"
-        >
-          Sign in
-        </button>
+        <Button loading={loading} label="Sign in" />
         <p className="text-sm font-light text-gray-500 dark:text-gray-400">
           Don’t have an account yet?{" "}
           <Link

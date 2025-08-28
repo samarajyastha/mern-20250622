@@ -7,7 +7,7 @@ import imagePlaceholder from "@/assets/images/products/placeholder.png";
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md">
+    <div className="bg-white dark:bg-slate-700 dark:text-white rounded-lg shadow-md">
       <div className="relative overflow-hidden rounded-t-lg">
         <Link href={`${PRODUCTS_ROUTE}/${product._id}`}>
           <Image
@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
         </span>
       </div>
       <div className="p-4">
-        <h3 className="font-semibold text-xl hover:text-secondary transition-all duration-300">
+        <h3 className="font-semibold text-xl hover:text-secondary dark:hover:text-primary transition-all duration-300">
           <Link href={`${PRODUCTS_ROUTE}/${product._id}`}>{product.name}</Link>
         </h3>
         <div className="text-yellow-500 text-xs py-2 flex items-center gap-0.5">
@@ -32,18 +32,18 @@ const ProductCard = ({ product }) => {
           <FaStar />
           <FaStar />
           <FaStar />
-          <span className="text-gray-500 ml-1">(265)</span>
+          <span className="text-gray-500 dark:text-gray-300 ml-1">(265)</span>
         </div>
         <div className="flex justify-between">
           <div>
-            <span className="text-primary font-bold mr-1 text-lg">
+            <span className="text-primary dark:text-secondary font-bold mr-1 text-lg">
               Rs. {product.price}
             </span>
-            <span className="line-through text-gray-500 text-sm">
+            <span className="line-through text-gray-500 dark:text-gray-300 text-sm">
               Rs. {product.price * 1.2}
             </span>
           </div>
-          <button className="text-primary">
+          <button className="text-primary dark:text-secondary">
             <FaCartPlus />
           </button>
         </div>

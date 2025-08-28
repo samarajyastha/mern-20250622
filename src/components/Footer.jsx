@@ -13,7 +13,7 @@ import fonepay from "@/assets/images/payments/fonepay.png";
 
 const Footer = () => {
   return (
-    <footer className="py-16 bg-slate-800">
+    <footer className="py-16 bg-primary-dark">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 border-b border-b-slate-600 pb-16 mb-5">
           <div>
