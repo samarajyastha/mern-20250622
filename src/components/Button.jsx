@@ -4,13 +4,13 @@ const Button = ({
   label,
   loading = false,
   type = "submit",
-  className = "bg-primary hover:bg-primary/90 dark:bg-primary dark:hover:bg-primary/90",
+  className = "w-full bg-primary hover:bg-primary/90 dark:bg-primary dark:hover:bg-primary/90",
 }) => {
   return (
     <button
       type={type}
       disabled={loading}
-      className={`relative w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center ${className}`}
+      className={`relative text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center ${className}`}
     >
       {label}
       {loading && (
