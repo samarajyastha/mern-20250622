@@ -3,5 +3,6 @@ export const BLOGS_ROUTE = "/blogs";
 export const CONTACT_ROUTE = "/contact";
 export const HOME_ROUTE = "/";
 export const LOGIN_ROUTE = "/login";
+export const PRODUCT_MANAGEMENT_ROUTE = "/product-management";
 export const PRODUCTS_ROUTE = "/products";
 export const REGISTER_ROUTE = "/register";

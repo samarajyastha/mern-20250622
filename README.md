@@ -156,5 +156,8 @@ if authToken -> User is logged in -> use this authToken in api request
 - session storage: 5MB: Browser: data is cleared on tab closed
 - cookie storage: 4KB: Browser and server: expiry date can be set
 
-Register using thunk actions
-Persist state
+## Todo Next
+1. Popup modal
+2. Update image
+3. Filter products table
+

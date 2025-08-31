@@ -1,13 +1,13 @@
 "use client";
 
-import { createProduct } from "@/api/products";
+import { createProduct, updateProduct } from "@/api/products";
+import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 import Button from "@/components/Button";
 import Image from "next/image";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
 
-const ProductForm = () => {
+const ProductForm = ({ product, isEditing = false }) => {
   const [loading, setLoading] = useState(false);
   const [productImages, setProductImages] = useState([]);
   const [localImageUrls, setLocalImageUrls] = useState([]);
@@ -17,7 +17,9 @@ const ProductForm = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+  } = useForm({
+    values: product,
+  });
 
   function prepareData(data) {
     const formdata = new FormData();
@@ -42,12 +44,18 @@ const ProductForm = () => {
   async function submitForm(data) {
     setLoading(true);
 
-    const authToken = localStorage.getItem("authToken");
-
     const input = prepareData(data);
 
     try {
-      await createProduct(input, authToken);
+      if (isEditing) {
+        await updateProduct(product._id, data);
+
+        toast.success("Product updated successfully.", { autoClose: 1500 });
+
+        return;
+      }
+
+      await createProduct(input);
 
       reset();
 
@@ -232,7 +240,7 @@ const ProductForm = () => {
       </div>
 
       <Button
-        label="Add product"
+        label={isEditing ? "Edit product" : "Add product"}
         loading={loading}
         className="mt-4 px-12 text-center sm:mt-6 bg-primary hover:bg-primary/90"
       />
