@@ -24,6 +24,7 @@ connectCloudinary();
 app.use(
   cors({
     origin: config.appUrl,
+    credentials: true,
   })
 );
 
