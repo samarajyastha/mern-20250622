@@ -21,7 +21,7 @@ const login = async (req, res) => {
 
     const authToken = createJWT(data);
 
-    res.cookie("authToken", authToken, { maxAge: 86400 * 1000 });
+    // res.cookie("authToken", authToken, { maxAge: 86400 * 1000 });
 
     res.json({ ...data, authToken });
   } catch (error) {
@@ -49,7 +49,7 @@ const register = async (req, res) => {
 
     const authToken = createJWT(data);
 
-    res.cookie("authToken", authToken, { maxAge: 86400 * 1000 });
+    // res.cookie("authToken", authToken, { maxAge: 86400 * 1000 });
 
     res.status(201).json({ ...data, authToken });
   } catch (error) {
