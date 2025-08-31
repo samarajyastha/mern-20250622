@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
     appUrl: config.appUrl,
     name: config.name,
     port: config.port,
-    status: "Running...",
+    status: "OK",
     version: config.version,
   });
 });
