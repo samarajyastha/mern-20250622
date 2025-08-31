@@ -33,6 +33,7 @@ app.use(logger);
 
 app.get("/", (req, res) => {
   res.json({
+    appUrl: config.appUrl,
     name: config.name,
     port: config.port,
     status: "Running...",
