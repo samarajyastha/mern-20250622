@@ -157,7 +157,5 @@ if authToken -> User is logged in -> use this authToken in api request
 - cookie storage: 4KB: Browser and server: expiry date can be set
 
 ## Todo Next
-1. Popup modal
-2. Update image
-3. Filter products table
 
+- Update image

@@ -1,22 +1,95 @@
 "use client";
-import { deleteProduct } from "@/api/products";
 import {
   FaAngleLeft,
   FaAngleRight,
+  FaArrowUp,
   FaPencil,
   FaPlus,
-  FaTrash,
   FaUpload,
 } from "react-icons/fa6";
-import { GrUpdate } from "react-icons/gr";
 import { format } from "date-fns";
 import { FaCog } from "react-icons/fa";
 import Image from "next/image";
 import imagePlaceholder from "@/assets/images/products/placeholder.png";
 import Link from "next/link";
 import { PRODUCT_MANAGEMENT_ROUTE } from "@/constants/routes";
+import DeleteProductButton from "./DeleteButton";
+import { useEffect, useState } from "react";
+import { getProducts } from "@/api/products";
+import { useDispatch, useSelector } from "react-redux";
+import { refreshList } from "@/redux/product/productSlice";
+import Spinner from "@/components/Spinner";
+import {
+  HiArrowSmallDown,
+  HiArrowSmallUp,
+  HiMiniArrowsUpDown,
+} from "react-icons/hi2";
 
-const ProductsTable = ({ products }) => {
+const columns = [
+  {
+    label: "S.N",
+    key: "id",
+    sortable: false,
+  },
+  {
+    label: "Product",
+    key: "name",
+    sortable: true,
+  },
+  {
+    label: "Brand",
+    key: "brand",
+    sortable: true,
+  },
+  {
+    label: "Category",
+    key: "category",
+    sortable: true,
+  },
+  {
+    label: "Price",
+    key: "price",
+    sortable: true,
+  },
+  {
+    label: "Stock",
+    key: "stock",
+    sortable: true,
+  },
+  {
+    label: "Created At",
+    key: "createdAt",
+    sortable: true,
+  },
+];
+
+const ProductsTable = () => {
+  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([]);
+  const [sortBy, setSortBy] = useState("createdAt");
+  const [sortOrder, setSortOrder] = useState(-1);
+
+  const { refresh } = useSelector((state) => state.product);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setLoading(true);
+
+    let query = "";
+
+    if (sortBy)
+      query = query + "sort=" + JSON.stringify({ [sortBy]: sortOrder });
+
+    console.log(query);
+
+    getProducts(query)
+      .then((response) => setProducts(response.data))
+      .finally(() => {
+        setLoading(false);
+        dispatch(refreshList(false));
+      });
+  }, [refresh, dispatch, sortBy, sortOrder]);
+
   return (
     <div className="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
       <div className="flex flex-col px-4 py-3 space-y-3 lg:flex-row lg:items-center lg:justify-between lg:space-y-0 lg:space-x-4">
@@ -42,43 +115,44 @@ const ProductsTable = ({ products }) => {
             type="button"
             className="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-primary focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
           >
-            <GrUpdate className="w-4 h-4 mr-2" />
-            Update stocks 1/250
-          </button>
-          <button
-            type="button"
-            className="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-primary focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-          >
             <FaUpload className="w-4 h-4 mr-2" />
             Export
           </button>
         </div>
       </div>
+
       <div className="overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-600 dark:text-gray-400">
           <thead className="text-xs text-gray-700 font-medium uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
             <tr>
-              <th scope="col" className="px-4 py-3">
-                S.N
-              </th>
-              <th scope="col" className="px-4 py-3">
-                Product
-              </th>
-              <th scope="col" className="px-4 py-3">
-                Brand
-              </th>
-              <th scope="col" className="px-4 py-3">
-                Category
-              </th>
-              <th scope="col" className="px-4 py-3">
-                Price
-              </th>
-              <th scope="col" className="px-4 py-3">
-                Stock
-              </th>
-              <th scope="col" className="px-4 py-3">
-                Created At
-              </th>
+              {columns.map((column, index) => (
+                <th
+                  scope="col"
+                  className="px-4 py-3"
+                  key={index}
+                  onClick={() => {
+                    if (!column.sortable) return;
+
+                    setSortBy(column.key);
+                    setSortOrder(sortOrder == 1 ? -1 : 1);
+                  }}
+                >
+                  <div className="flex items-center gap-2">
+                    {column.label}
+                    {column.sortable ? (
+                      column.key == sortBy ? (
+                        sortOrder == 1 ? (
+                          <HiArrowSmallUp />
+                        ) : (
+                          <HiArrowSmallDown />
+                        )
+                      ) : (
+                        <HiMiniArrowsUpDown />
+                      )
+                    ) : null}
+                  </div>
+                </th>
+              ))}
               <th scope="col" className="px-4 py-3 flex justify-center">
                 <FaCog />
               </th>
@@ -140,12 +214,7 @@ const ProductsTable = ({ products }) => {
                     >
                       <FaPencil />
                     </Link>
-                    <button
-                      onClick={() => deleteProduct(product._id)}
-                      className="text-red-600"
-                    >
-                      <FaTrash />
-                    </button>
+                    <DeleteProductButton id={product._id} />
                   </div>
                 </td>
               </tr>
