@@ -27,8 +27,6 @@ app.use(
   })
 );
 
-app.options("*", cors());
-
 app.use(bodyParser.json());
 app.use(logger);
 
