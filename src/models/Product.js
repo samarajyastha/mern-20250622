@@ -23,7 +23,6 @@ const productSchema = new mongoose.Schema({
   stock: {
     type: Number,
     default: 1,
-    select: false,
     max: [10000, "Stock items must not exceed 10000."],
   },
   imageUrls: {
