@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
     name: config.name,
     port: config.port,
     status: "OK",
-    version: "1.1.2",
+    version: config.version,
   });
 });
 
