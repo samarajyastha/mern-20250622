@@ -48,7 +48,7 @@ const ProductForm = ({ product, isEditing = false }) => {
 
     try {
       if (isEditing) {
-        await updateProduct(product._id, data);
+        await updateProduct(product._id, input);
 
         toast.success("Product updated successfully.", { autoClose: 1500 });
 
