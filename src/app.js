@@ -21,14 +21,7 @@ const upload = multer({ storage: multer.memoryStorage() });
 connectDB();
 connectCloudinary();
 
-const corsOptions = {
-  origin: [config.appUrl, "http://localhost:3000"], // Add all allowed origins
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true, // Allow cookies to be sent
-  optionsSuccessStatus: 204, // For preflight requests
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(logger);
