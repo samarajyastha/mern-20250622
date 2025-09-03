@@ -21,7 +21,7 @@ const login = async (req, res) => {
 
     const authToken = createJWT(data);
 
-    res.cookie("authToken", token);
+    res.cookie("authToken", authToken);
 
     res.json({ ...data, authToken });
   } catch (error) {
@@ -49,7 +49,7 @@ const register = async (req, res) => {
 
     const authToken = createJWT(data);
 
-    res.cookie("authToken", token);
+    res.cookie("authToken", authToken);
 
     res.status(201).json({ ...data, authToken });
   } catch (error) {
