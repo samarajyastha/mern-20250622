@@ -46,12 +46,6 @@ const getProductById = async (id) => {
     };
   }
 
-  if (product.stock < 1) {
-    throw {
-      message: "Product not available",
-    };
-  }
-
   return product;
 };
 
@@ -101,9 +95,19 @@ const updateProduct = async (id, data, files, user) => {
   return updatedProduct;
 };
 
+const getBrands = async () => {
+  return await Product.distinct("brand");
+};
+
+const getCategories = async () => {
+  return await Product.distinct("category");
+};
+
 export default {
   createProduct,
   deleteProduct,
+  getBrands,
+  getCategories,
   getProductById,
   getProducts,
   updateProduct,
