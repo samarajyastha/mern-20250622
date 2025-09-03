@@ -1,7 +1,7 @@
 import bodyParser from "body-parser";
+import cors from "cors";
 import express from "express";
 import multer from "multer";
-import cors from "cors";
 
 import auth from "./middlewares/auth.js";
 import authRoutes from "./routes/authRoute.js";
@@ -21,10 +21,11 @@ const upload = multer({ storage: multer.memoryStorage() });
 connectDB();
 connectCloudinary();
 
+app.use(logger);
 app.use(cors());
 
 app.use(bodyParser.json());
-app.use(logger);
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   res.json({
