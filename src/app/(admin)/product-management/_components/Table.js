@@ -2,7 +2,6 @@
 import {
   FaAngleLeft,
   FaAngleRight,
-  FaArrowUp,
   FaPencil,
   FaPlus,
   FaUpload,
@@ -18,7 +17,6 @@ import { useEffect, useState } from "react";
 import { getProducts } from "@/api/products";
 import { useDispatch, useSelector } from "react-redux";
 import { refreshList } from "@/redux/product/productSlice";
-import Spinner from "@/components/Spinner";
 import {
   HiArrowSmallDown,
   HiArrowSmallUp,
@@ -64,7 +62,6 @@ const columns = [
 ];
 
 const ProductsTable = () => {
-  const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [sortBy, setSortBy] = useState("createdAt");
   const [sortOrder, setSortOrder] = useState(-1);
@@ -73,19 +70,13 @@ const ProductsTable = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setLoading(true);
+    const query = {};
 
-    let query = "";
-
-    if (sortBy)
-      query = query + "sort=" + JSON.stringify({ [sortBy]: sortOrder });
-
-    console.log(query);
+    if (sortBy) query.sort = JSON.stringify({ [sortBy]: sortOrder });
 
     getProducts(query)
       .then((response) => setProducts(response.data))
       .finally(() => {
-        setLoading(false);
         dispatch(refreshList(false));
       });
   }, [refresh, dispatch, sortBy, sortOrder]);
@@ -128,7 +119,7 @@ const ProductsTable = () => {
               {columns.map((column, index) => (
                 <th
                   scope="col"
-                  className="px-4 py-3"
+                  className="px-4 py-3 cursor-pointer"
                   key={index}
                   onClick={() => {
                     if (!column.sortable) return;

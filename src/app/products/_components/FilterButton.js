@@ -11,7 +11,7 @@ const FilterButton = ({ brands, categories }) => {
     <>
       <button
         onClick={() => setShowFilter(!showFilter)}
-        className="bg-secondary text-white px-4 py-1 rounded-md flex items-center gap-1 hover:bg-secondary/80"
+        className="bg-primary text-white px-4 py-1.5 rounded-md flex items-center gap-1 hover:bg-primary/80"
       >
         Filter <MdOutlineFilterAlt />
       </button>
