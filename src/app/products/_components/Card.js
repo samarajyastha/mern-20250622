@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import imagePlaceholder from "@/assets/images/products/placeholder.png";
+import AddToCart from "./AddToCart";
 
 const ProductCard = ({ product, productView }) => {
   return (
@@ -71,9 +72,7 @@ const ProductCard = ({ product, productView }) => {
               Rs. {product.price * 1.2}
             </span>
           </div>
-          <button className="text-primary dark:text-secondary">
-            <FaCartPlus />
-          </button>
+          <AddToCart product={product} />
         </div>
       </div>
     </div>

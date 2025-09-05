@@ -156,6 +156,51 @@ if authToken -> User is logged in -> use this authToken in api request
 - session storage: 5MB: Browser: data is cleared on tab closed
 - cookie storage: 4KB: Browser and server: expiry date can be set
 
+## Rendering
+- Process of transforming component code into UI.
+- Client Side Rendering (CSR) and Server Side Rendering (SSR)
+
+## CSR
+- If rendering is done in browser -> CSR
+
+## SSR
+- If rendering is done in server -> SSR
+
+=======================================================================
+
+# React Server Components
+- Architecture designed by react team.
+- Uses both client and server environment functionality.
+- Dual component model
+    - Client component
+    - Server component
+
+## RSC -> Client component
+- Interactivity
+- Event
+- State management
+- Add "use client" directive at the top
+
+## RSC -> Server component
+- Fetch data
+- Send api requests
+- Metadata
+- Server component is by default in next.js
+
+
 ## Todo Next
 
-- Update image
+- Cart
+- Checkout
+- Order management
+- Payment
+- Dashboard
+- Profile update
+- User management
+- Forgot/Reset password
+- Stripe payment
+- Home page
+- Other pages
+- Multi vendor
+- Deployment
+- Integration

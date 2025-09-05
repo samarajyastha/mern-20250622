@@ -1,5 +1,4 @@
 import { getBrands, getCategories, getProducts } from "@/api/products";
-import ProductCard from "./_components/Card";
 import FilterButton from "./_components/FilterButton";
 import SearchBar from "./_components/SearchBar";
 import ListGridView from "./_components/ListGridView";

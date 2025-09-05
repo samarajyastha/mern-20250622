@@ -1,7 +1,7 @@
+import AuthMenu from "./AuthMenu";
+import CartButton from "./CartButton";
 import Logo from "./Logo";
 import NavMenu from "./NavMenu";
-import { MdOutlineAddShoppingCart } from "react-icons/md";
-import AuthMenu from "./AuthMenu";
 import ToggleTheme from "./ToggleTheme";
 
 const Header = () => {
@@ -14,9 +14,7 @@ const Header = () => {
 
           <div className="flex items-center gap-3">
             <ToggleTheme />
-            <div className="text-sm">
-              <MdOutlineAddShoppingCart />
-            </div>
+            <CartButton />
             <AuthMenu />
           </div>
         </div>
