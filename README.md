@@ -190,9 +190,7 @@ if authToken -> User is logged in -> use this authToken in api request
 
 ## Todo Next
 
-- Cart
-- Checkout
-- Order management
+- Order management/tracking
 - Payment
 - Dashboard
 - Profile update
