@@ -2,7 +2,10 @@ import Order from "../models/Order.js";
 import Payment from "../models/Payment.js";
 import crypto from "crypto";
 import payment from "../utils/payment.js";
-import { ORDER_STATUS_CONFIRMED } from "../constants/orderStatuses.js";
+import {
+  ORDER_STATUS_CONFIRMED,
+  ORDER_STATUS_PENDING,
+} from "../constants/orderStatuses.js";
 import { PAYMENT_STATUS_COMPLETED } from "../constants/paymenStatuses.js";
 import { ADMIN } from "../constants/roles.js";
 
@@ -14,8 +17,12 @@ const getOrders = async () => {
   return orders;
 };
 
-const getOrdersByUser = async (userId) => {
-  const orders = await Order.find({ user: userId })
+const getOrdersByUser = async (query, userId) => {
+  const orders = await Order.find({
+    status: query?.status || ORDER_STATUS_PENDING,
+    user: userId,
+  })
+    .sort({ createdAt: -1 })
     .populate("orderItems.product")
     .populate("user", ["name", "email", "phone", "address"])
     .populate("payment");

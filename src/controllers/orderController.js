@@ -12,7 +12,7 @@ const getOrders = async (req, res) => {
 
 const getOrdersByUser = async (req, res) => {
   try {
-    const data = await orderService.getOrdersByUser(req.user._id);
+    const data = await orderService.getOrdersByUser(req.query, req.user._id);
 
     res.json(data);
   } catch (error) {
