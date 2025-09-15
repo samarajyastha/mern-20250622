@@ -190,13 +190,12 @@ if authToken -> User is logged in -> use this authToken in api request
 
 ## Todo Next
 
-- Order management/tracking
-- Payment
+- Payment - Khalti, Stripe, COD
+- Order management
 - Dashboard
 - Profile update
 - User management
 - Forgot/Reset password
-- Stripe payment
 - Home page
 - Other pages
 - Multi vendor

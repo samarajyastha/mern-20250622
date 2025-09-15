@@ -1,9 +1,10 @@
 import {
-  HOME_ROUTE,
   ABOUT_ROUTE,
-  PRODUCTS_ROUTE,
   BLOGS_ROUTE,
   CONTACT_ROUTE,
+  HOME_ROUTE,
+  ORDERS_ROUTE,
+  PRODUCTS_ROUTE,
 } from "./routes";
 
 const navLinks = [
@@ -18,6 +19,10 @@ const navLinks = [
   {
     route: PRODUCTS_ROUTE,
     label: "Products",
+  },
+  {
+    route: ORDERS_ROUTE,
+    label: "Orders",
   },
   {
     route: BLOGS_ROUTE,
