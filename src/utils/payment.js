@@ -1,5 +1,6 @@
 import axios from "axios";
 import config from "../config/config.js";
+import Stripe from "stripe";
 
 const payViaKhalti = async (data) => {
   if (!data) throw { message: "Payment data is required." };
@@ -25,7 +26,7 @@ const payViaKhalti = async (data) => {
     },
   };
 
-  console.log(config)
+  console.log(config);
 
   const response = await axios.post(
     `${config.khalti.apiUrl}/epayment/initiate/`,
@@ -40,4 +41,16 @@ const payViaKhalti = async (data) => {
   return response.data;
 };
 
-export default { payViaKhalti };
+const payViaStripe = async ({ amount, currency }) => {
+  const stripe = new Stripe(config.stripe.secretKey);
+
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount, // amount in cents
+    currency, // e.g. "usd"
+    automatic_payment_methods: { enabled: true },
+  });
+
+  return paymentIntent;
+};
+
+export default { payViaKhalti, payViaStripe };

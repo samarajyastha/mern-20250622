@@ -13,6 +13,7 @@ import orderRoutes from "./routes/orderRoute.js";
 import productRoutes from "./routes/productRoute.js";
 import todoRoutes from "./routes/todoRoute.js";
 import userRoutes from "./routes/userRoute.js";
+import payment from "./utils/payment.js";
 
 const app = express();
 
@@ -42,6 +43,20 @@ app.use("/api/products", upload.array("images", 5), productRoutes);
 app.use("/api/orders", auth, orderRoutes);
 app.use("/api/users", auth, upload.single("image"), userRoutes);
 app.use("/todos", todoRoutes);
+
+app.post("/api/payment/stripe", async (req, res) => {
+  try {
+    const { amount, currency } = req.body;
+
+    const paymentIntent = await payment.payViaStripe({ amount, currency });
+
+    res.json({
+      clientSecret: paymentIntent.client_secret,
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
 app.listen(config.port, () => {
   console.log(`Server running at port ${config.port}...`);

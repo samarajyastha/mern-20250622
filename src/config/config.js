@@ -24,6 +24,9 @@ const config = {
     url: process.env.GEMINI_URL || "",
     apiKey: process.env.GEMINI_API_KEY || "",
   },
+  stripe: {
+    secretKey: process.env.STRIPE_SECRET_KEY || "",
+  },
 };
 
 export default config;
