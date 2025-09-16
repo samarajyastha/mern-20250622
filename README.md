@@ -157,40 +157,62 @@ if authToken -> User is logged in -> use this authToken in api request
 - cookie storage: 4KB: Browser and server: expiry date can be set
 
 ## Rendering
+
 - Process of transforming component code into UI.
 - Client Side Rendering (CSR) and Server Side Rendering (SSR)
 
 ## CSR
+
 - If rendering is done in browser -> CSR
 
 ## SSR
+
 - If rendering is done in server -> SSR
 
 =======================================================================
 
 # React Server Components
+
 - Architecture designed by react team.
 - Uses both client and server environment functionality.
 - Dual component model
-    - Client component
-    - Server component
+  - Client component
+  - Server component
 
 ## RSC -> Client component
+
 - Interactivity
 - Event
 - State management
 - Add "use client" directive at the top
 
 ## RSC -> Server component
+
 - Fetch data
 - Send api requests
 - Metadata
 - Server component is by default in next.js
 
+## Payment via khalti
+
+1. Click pay via khalti
+2. Responds with khalti payment url
+3. Redirect to khalti payment url
+4. User will do the payment
+5. Khalti will verify the payment
+6. Khalti will redirect back to return_url
+7. Developers need to handle the khalti payment using status, and update payment
+
+## Payment via Stripe
+
+1. Use Stripe SDK
+2. On payment initiate, the api responds with `client_secret`
+3. Use this client secret in frontend sdk
+4. Confirm card payment via stripe
+5. Use the result to confirm payment in our app.
 
 ## Todo Next
 
-- Payment - Khalti, Stripe, COD
 - Order management
 - Dashboard
 - Profile update

@@ -9,6 +9,7 @@ import { FaImage } from "react-icons/fa6";
 import DeleteAction from "./DeleteAction";
 import CashOnDelivery from "./CashOnDelivery";
 import PayViaKhalti from "./PayViaKhalti";
+import PayViaStripe from "./PayViaStripe";
 
 const OrderStatusBadge = ({ status }) => {
   switch (status) {
@@ -86,7 +87,8 @@ const OrderCard = ({ order, setIsUpdated }) => {
         {order.status == ORDER_STATUS_PENDING && (
           <div className="flex gap-2">
             <CashOnDelivery order={order} />
-            <PayViaKhalti />
+            <PayViaKhalti order={order} />
+            <PayViaStripe order={order} />
             <DeleteAction order={order} setIsUpdated={setIsUpdated} />
           </div>
         )}

@@ -16,4 +16,24 @@ async function updateOrder(id, data) {
   return await api.put(`/api/orders/${id}`, data);
 }
 
-export { createOrder, getOrdersByUser, deleteOrder, updateOrder };
+async function payViaKhalti(orderId) {
+  return await api.post(`/api/orders/${orderId}/payment/khalti`);
+}
+
+async function payViaStripe(orderId) {
+  return await api.post(`/api/orders/${orderId}/payment/stripe`);
+}
+
+async function confirmPayment(orderId, data) {
+  return await api.put(`/api/orders/${orderId}/confirm-payment`, data);
+}
+
+export {
+  createOrder,
+  getOrdersByUser,
+  deleteOrder,
+  updateOrder,
+  payViaKhalti,
+  confirmPayment,
+  payViaStripe,
+};
