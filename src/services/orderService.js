@@ -108,8 +108,38 @@ const orderPaymentViaKhalti = async (id, user) => {
 
   return await payment.payViaKhalti({
     amount: order.totalPrice,
-    purchaseOrderId: order.id,
+    purchaseOrderId: id,
     purchaseOrderName: order.orderNumber,
+    customer: order.user,
+  });
+};
+
+const orderPaymentViaStripe = async (id, user) => {
+  const order = await getOrderById(id);
+
+  if (order.user._id != user._id) {
+    throw {
+      statusCode: 403,
+      message: "Access denied.",
+    };
+  }
+
+  const transactionId = crypto.randomUUID();
+
+  const orderPayment = await Payment.create({
+    amount: order.totalPrice,
+    method: "card",
+    transactionId,
+  });
+
+  await Order.findByIdAndUpdate(id, {
+    payment: orderPayment._id,
+  });
+
+  return await payment.payViaStripe({
+    amount: order.totalPrice,
+    orderId: id,
+    orderName: order.orderNumber,
     customer: order.user,
   });
 };
@@ -200,13 +230,14 @@ const getOrdersOfMerchant = async (merchantId) => {
 };
 
 export default {
+  confirmOrderPayment,
   createOrder,
   deleteOrder,
   getOrderById,
   getOrders,
   getOrdersByUser,
-  updateOrder,
-  orderPaymentViaKhalti,
-  confirmOrderPayment,
   getOrdersOfMerchant,
+  orderPaymentViaKhalti,
+  orderPaymentViaStripe,
+  updateOrder,
 };

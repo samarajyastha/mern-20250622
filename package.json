@@ -24,6 +24,7 @@
     "mongoose": "^8.16.4",
     "multer": "^2.0.2",
     "resend": "^4.8.0",
+    "stripe": "^18.5.0",
     "twilio": "^5.8.0"
   },
   "devDependencies": {
