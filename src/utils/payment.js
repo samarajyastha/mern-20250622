@@ -26,8 +26,6 @@ const payViaKhalti = async (data) => {
     },
   };
 
-  console.log(config);
-
   const response = await axios.post(
     `${config.khalti.apiUrl}/epayment/initiate/`,
     body,
@@ -41,13 +39,21 @@ const payViaKhalti = async (data) => {
   return response.data;
 };
 
-const payViaStripe = async ({ amount, currency }) => {
+const payViaStripe = async (data) => {
   const stripe = new Stripe(config.stripe.secretKey);
 
   const paymentIntent = await stripe.paymentIntents.create({
-    amount, // amount in cents
-    currency, // e.g. "usd"
+    amount: data.amount,
+    currency: data.currency || "npr",
     automatic_payment_methods: { enabled: true },
+    metadata: {
+      customer_name: data.customer.name,
+      customer_email: data.customer.email,
+      customer_phone: data.customer.phone,
+      order_id: data.orderId,
+      order_number: data.orderNumber,
+    },
+    shipping: {},
   });
 
   return paymentIntent;

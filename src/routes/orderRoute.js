@@ -28,6 +28,8 @@ router.delete("/:id", orderController.deleteOrder);
 // URL: /api/orders/:id/payment/khalti
 router.post("/:id/payment/khalti", orderController.orderPaymentViaKhalti);
 
+router.post("/:id/payment/stripe", orderController.orderPaymentViaStripe);
+
 router.put("/:id/confirm-payment", orderController.confirmOrderPayment);
 
 export default router;
