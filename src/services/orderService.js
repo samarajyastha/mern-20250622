@@ -11,6 +11,7 @@ import { ADMIN } from "../constants/roles.js";
 
 const getOrders = async () => {
   const orders = await Order.find()
+    .sort({ createdAt: -1 })
     .populate("orderItems.product")
     .populate("user", ["name", "email", "phone", "address"]);
 
