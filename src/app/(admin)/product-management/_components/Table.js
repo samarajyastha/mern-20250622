@@ -87,11 +87,7 @@ const ProductsTable = () => {
         <div className="flex items-center flex-1 space-x-4">
           <h5>
             <span className="text-gray-500">All Products: </span>
-            <span className="dark:text-white">123456</span>
-          </h5>
-          <h5>
-            <span className="text-gray-500">Total sales: </span>
-            <span className="dark:text-white">$88.4k</span>
+            <span className="dark:text-white">{products?.length}</span>
           </h5>
         </div>
         <div className="flex flex-col flex-shrink-0 space-y-3 md:flex-row md:items-center lg:justify-end md:space-y-0 md:space-x-3">

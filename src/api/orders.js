@@ -1,5 +1,9 @@
 import api from "./api";
 
+async function getOrders() {
+  return await api.get(`/api/orders`);
+}
+
 async function createOrder(data) {
   return await api.post(`/api/orders`, data);
 }
@@ -29,6 +33,7 @@ async function confirmPayment(orderId, data) {
 }
 
 export {
+  getOrders,
   createOrder,
   getOrdersByUser,
   deleteOrder,

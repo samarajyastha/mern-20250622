@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import Spinner from "@/components/Spinner";
+import Sidebar from "./_components/Sidebar";
 
 const AdminLayout = ({ children }) => {
   const { user } = useSelector((state) => state.auth);
@@ -27,7 +28,14 @@ const AdminLayout = ({ children }) => {
       </div>
     );
 
-  return <div>{children}</div>;
+  return (
+    <div className="relative lg:pl-64">
+      <Sidebar />
+      <section className="bg-gray-50 dark:bg-gray-900 min-h-screen py-4 sm:py-8">
+        {children}
+      </section>
+    </div>
+  );
 };
 
 export default AdminLayout;

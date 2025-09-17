@@ -213,13 +213,14 @@ if authToken -> User is logged in -> use this authToken in api request
 
 ## Todo Next
 
-- Order management
+- User management
 - Dashboard
 - Profile update
-- User management
 - Forgot/Reset password
 - Home page
 - Other pages
+- Product details page
+- Product pagination
 - Multi vendor
 - Deployment
 - Integration
