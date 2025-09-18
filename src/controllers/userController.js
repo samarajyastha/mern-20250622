@@ -40,6 +40,18 @@ const updateUser = async (req, res) => {
   }
 };
 
+const updateUserRoles = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const data = await userService.updateUserRoles(id, req.body, req.user);
+
+    res.status(201).json(data);
+  } catch (error) {
+    res.status(error.statusCode || 500).send(error.message);
+  }
+};
+
 const deleteUser = async (req, res) => {
   const id = req.params.id;
 
@@ -69,8 +81,7 @@ const createMerchant = async (req, res) => {
   const userId = req.body.userId;
 
   try {
-    if (!userId)
-      return res.status(400).send("Merchant id is required.");
+    if (!userId) return res.status(400).send("Merchant id is required.");
 
     const data = await userService.createMerchant(userId);
 
@@ -84,6 +95,7 @@ export default {
   createUser,
   getUsers,
   getUserById,
+  updateUserRoles,
   updateUser,
   deleteUser,
   updateProfileImage,
