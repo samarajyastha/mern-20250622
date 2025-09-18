@@ -53,7 +53,7 @@ const OrdersTable = () => {
   }, []);
 
   return (
-    <div className="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
+    <div className="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 border border-gray-300 dark:border-gray-700 sm:rounded-lg">
       <div className="flex flex-col px-4 py-3 space-y-3 lg:flex-row lg:items-center lg:justify-between lg:space-y-0 lg:space-x-4">
         <div className="flex items-center flex-1 space-x-4">
           <h5>
@@ -97,7 +97,7 @@ const OrdersTable = () => {
                 <td className="px-4 py-2">
                   <div className="flex items-center">{index + 1}.</div>
                 </td>
-                <th className="px-4 py-2">{order.orderNumber}</th>
+                <td className="px-4 py-2 font-medium">{order.orderNumber}</td>
                 <td className="px-4 py-2">
                   <div className="flex items-center">{order.user.name}</div>
                 </td>

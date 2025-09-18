@@ -1,15 +1,15 @@
-"use client";
-import config from "@/config";
-import axios from "axios";
-
-const authToken = localStorage.getItem("authToken");
+import api from "./api";
 
 async function getAllUsers() {
-  return await axios.get(`${config.apiUrl}/api/users`, {
-    headers: {
-      Authorization: `Bearer ${authToken}`,
-    },
-  });
+  return await api.get(`/api/users`);
 }
 
-export { getAllUsers };
+async function updateUser(id, data) {
+  return await api.put(`/api/users/${id}`, data);
+}
+
+async function updateUserRoles(id, data) {
+  return await api.put(`/api/users/${id}/roles`, data);
+}
+
+export { getAllUsers, updateUser, updateUserRoles };
