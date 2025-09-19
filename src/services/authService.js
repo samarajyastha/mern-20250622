@@ -21,6 +21,7 @@ const login = async (data) => {
     name: user.name,
     phone: user.phone,
     roles: user.roles,
+    profileImageUrl: user?.profileImageUrl,
   };
 };
 
