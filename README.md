@@ -213,10 +213,6 @@ if authToken -> User is logged in -> use this authToken in api request
 
 ## Todo Next
 
-- Update profile image
-- Forgot/Reset password
-- Home page
-- Other pages
 - Product details page
 - Product pagination
 - Dashboard
