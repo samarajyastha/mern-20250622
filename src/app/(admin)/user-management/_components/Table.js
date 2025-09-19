@@ -6,6 +6,7 @@ import { getAllUsers } from "@/api/users";
 import Action from "./Action";
 import Image from "next/image";
 import { FaUser } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 const columns = [
   {
@@ -34,7 +35,11 @@ const UsersTable = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    getAllUsers().then((response) => setUsers(response.data));
+    getAllUsers()
+      .then((response) => setUsers(response.data))
+      .catch((error) => {
+        toast.error(error.response.data, { autoClose: 1500 });
+      });
   }, []);
 
   return (

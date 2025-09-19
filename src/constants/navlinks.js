@@ -25,10 +25,6 @@ const navLinks = [
     label: "Orders",
   },
   {
-    route: BLOGS_ROUTE,
-    label: "Blogs",
-  },
-  {
     route: CONTACT_ROUTE,
     label: "Contact",
   },

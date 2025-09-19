@@ -4,11 +4,10 @@ import { updateUserProfile } from "@/redux/auth/authActions";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "@/components/Button";
-import Image from "next/image";
-import { FaUser } from "react-icons/fa6";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { resetSuccess } from "@/redux/auth/authSlice";
+import ProfileImage from "./_components/ProfileImage";
 
 const ProfilePage = () => {
   const { error, loading, user, success } = useSelector((state) => state.auth);
@@ -60,23 +59,13 @@ const ProfilePage = () => {
   }, [error, success]);
 
   return (
-    <section >
+    <section>
       <div className="container mx-auto px-4 max-w-5xl">
         <h1 className="text-3xl font-semibold mb-5 dark:text-white text-gray-800">
           Your Profile
         </h1>
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8 dark:bg-slate-700 bg-white rounded-2xl w-full border border-gray-200 dark:border-gray-600 shadow-lg">
-          {user?.profileImageUrl ? (
-            <Image
-              src={user.profileImageUrl}
-              alt=""
-              height={64}
-              width={64}
-              className="h-16 w-16 rounded-full object-cover"
-            />
-          ) : (
-            <FaUser className="h-16 w-16 rounded-full p-3 bg-gray-200 text-gray-700" />
-          )}
+          <ProfileImage user={user} />
           <form
             onSubmit={handleSubmit(submitForm)}
             className="space-y-4 md:space-y-6"

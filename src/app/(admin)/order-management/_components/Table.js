@@ -12,6 +12,7 @@ import {
 } from "@/constants/orderStatus";
 import { RxDotFilled } from "react-icons/rx";
 import Action from "./Action";
+import { toast } from "react-toastify";
 
 const columns = [
   {
@@ -49,7 +50,11 @@ const OrdersTable = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    getOrders().then((response) => setOrders(response.data));
+    getOrders()
+      .then((response) => setOrders(response.data))
+      .catch((error) => {
+        toast.error(error.response.data, { autoClose: 1500 });
+      });
   }, []);
 
   return (

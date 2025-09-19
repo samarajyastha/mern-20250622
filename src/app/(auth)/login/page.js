@@ -1,7 +1,7 @@
 "use client";
 
 import { EMAIL_REGEX } from "@/constants/regex";
-import { REGISTER_ROUTE } from "@/constants/routes";
+import { FORGOT_PASSWORD_ROUTE, REGISTER_ROUTE } from "@/constants/routes";
 import { loginUser } from "@/redux/auth/authActions";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
@@ -103,7 +103,7 @@ const Login = () => {
             </div>
           </div>
           <Link
-            href="#"
+            href={FORGOT_PASSWORD_ROUTE}
             className="text-sm font-medium text-primary hover:underline dark:text-primary-500"
           >
             Forgot password?

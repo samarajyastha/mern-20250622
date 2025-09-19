@@ -12,4 +12,8 @@ async function updateUserRoles(id, data) {
   return await api.put(`/api/users/${id}/roles`, data);
 }
 
-export { getAllUsers, updateUser, updateUserRoles };
+async function updateProfileImage(id, file) {
+  return await api.patch(`/api/users/${id}/profile-image`, file);
+}
+
+export { getAllUsers, updateUser, updateUserRoles, updateProfileImage };
