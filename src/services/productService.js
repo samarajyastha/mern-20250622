@@ -99,6 +99,10 @@ const getBrands = async () => {
   return await Product.distinct("brand");
 };
 
+const getCount = async () => {
+  return await Product.countDocuments();
+};
+
 const getCategories = async () => {
   return await Product.distinct("category");
 };
@@ -107,6 +111,7 @@ export default {
   createProduct,
   deleteProduct,
   getBrands,
+  getCount,
   getCategories,
   getProductById,
   getProducts,

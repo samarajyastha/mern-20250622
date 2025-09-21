@@ -13,6 +13,12 @@ const getBrands = async (req, res) => {
   res.json(brands);
 };
 
+const getCount = async (req, res) => {
+  const count = await productService.getCount();
+
+  res.json(count);
+};
+
 const getCategories = async (req, res) => {
   const categories = await productService.getCategories();
 
@@ -80,6 +86,7 @@ export default {
   getBrands,
   getCategories,
   getProducts,
+  getCount,
   createProduct,
   getProductById,
   updateProduct,
