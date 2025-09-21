@@ -39,7 +39,7 @@ const Hero = () => {
             <Image
               src={heroImg}
               className="max-w-full h-auto rounded-xl shadow-xl lg:w-3/4 float-right"
-              alt
+              alt=""
               height={300}
               width={300}
             />

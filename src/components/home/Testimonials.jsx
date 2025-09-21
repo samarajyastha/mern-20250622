@@ -42,7 +42,7 @@ const Testimonials = () => {
                 height={64}
                 width={64}
                 src={user1}
-                alt
+                alt=""
                 className="h-12 w-12 object-cover rounded-full border border-slate-400"
               />
               <div>
@@ -74,7 +74,7 @@ const Testimonials = () => {
                 height={64}
                 width={64}
                 src={user2}
-                alt
+                alt=""
                 className="h-12 w-12 object-cover rounded-full border border-slate-400"
               />
               <div>
@@ -106,7 +106,7 @@ const Testimonials = () => {
                 height={64}
                 width={64}
                 src={user3}
-                alt
+                alt=""
                 className="h-12 w-12 object-cover rounded-full border border-slate-400"
               />
               <div>
@@ -138,7 +138,7 @@ const Testimonials = () => {
                 height={64}
                 width={64}
                 src={user4}
-                alt
+                alt=""
                 className="h-12 w-12 object-cover rounded-full border border-slate-400"
               />
               <div>

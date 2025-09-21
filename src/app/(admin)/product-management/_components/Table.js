@@ -22,6 +22,7 @@ import {
   HiArrowSmallUp,
   HiMiniArrowsUpDown,
 } from "react-icons/hi2";
+import Pagination from "./Pagination";
 
 const columns = [
   {
@@ -61,10 +62,13 @@ const columns = [
   },
 ];
 
+const PAGE_LIMIT = 10;
+
 const ProductsTable = () => {
   const [products, setProducts] = useState([]);
   const [sortBy, setSortBy] = useState("createdAt");
   const [sortOrder, setSortOrder] = useState(-1);
+  const [page, setPage] = useState(1);
 
   const { refresh } = useSelector((state) => state.product);
   const dispatch = useDispatch();
@@ -74,12 +78,15 @@ const ProductsTable = () => {
 
     if (sortBy) query.sort = JSON.stringify({ [sortBy]: sortOrder });
 
+    query.limit = PAGE_LIMIT;
+    query.offset = PAGE_LIMIT * (page - 1);
+
     getProducts(query)
       .then((response) => setProducts(response.data))
       .finally(() => {
         dispatch(refreshList(false));
       });
-  }, [refresh, dispatch, sortBy, sortOrder]);
+  }, [refresh, dispatch, sortBy, sortOrder, page]);
 
   return (
     <div className="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 border border-gray-300 dark:border-gray-700  sm:rounded-lg">
@@ -209,76 +216,7 @@ const ProductsTable = () => {
           </tbody>
         </table>
       </div>
-      <nav
-        className="flex flex-col items-start justify-between p-4 space-y-3 md:flex-row md:items-center md:space-y-0"
-        aria-label="Table navigation"
-      >
-        <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-          Showing
-          <span className="font-semibold">1-10</span>
-          of
-          <span className="font-semibold">1000</span>
-        </span>
-        <ul className="inline-flex items-stretch -space-x-px">
-          <li>
-            <a
-              href="#"
-              className="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              <FaAngleLeft />
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="flex items-center justify-center px-3 py-2 text-sm leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              1
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="flex items-center justify-center px-3 py-2 text-sm leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              2
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              aria-current="page"
-              className="z-10 flex items-center justify-center px-3 py-2 text-sm leading-tight border border-gray-300 text-primary bg-primary/20 hover:bg-primary/30 dark:border-gray-700 dark:bg-gray-700"
-            >
-              3
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="flex items-center justify-center px-3 py-2 text-sm leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              ...
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="flex items-center justify-center px-3 py-2 text-sm leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              100
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              <FaAngleRight />
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <Pagination page={page} setPage={setPage} total={products.length} />
     </div>
   );
 };

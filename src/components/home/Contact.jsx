@@ -6,7 +6,7 @@ const Contact = () => {
     <section className="py-16 relative">
       <Image
         src={bg}
-        alt
+        alt=""
         className="w-full h-full object-cover absolute top-0 -z-20"
         height={900}
         width={1200}

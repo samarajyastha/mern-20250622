@@ -213,9 +213,5 @@ if authToken -> User is logged in -> use this authToken in api request
 
 ## Todo Next
 
-- Product details page
-- Product pagination
-- Dashboard
-- Multi vendor
 - Deployment
-- Integration
+- Multi vendor

@@ -1,6 +1,6 @@
 import { clearCart } from "@/redux/cart/cartSlice";
 import { createOrder } from "@/api/orders";
-import { ORDERS_ROUTE } from "@/constants/routes";
+import { LOGIN_ROUTE, ORDERS_ROUTE } from "@/constants/routes";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
@@ -16,6 +16,8 @@ const Checkout = ({ products, totalPrice }) => {
   const dispatch = useDispatch();
 
   function checkoutOrder() {
+    if (!user) return router.push(LOGIN_ROUTE);
+
     setLoading(true);
 
     createOrder({
@@ -24,7 +26,7 @@ const Checkout = ({ products, totalPrice }) => {
         quantity: product.quantity,
       })),
       totalPrice,
-      shippingAddress: user.address,
+      shippingAddress: user?.address,
     })
       .then(() => {
         toast.success("Order created successfully.", { autoClose: 1500 });

@@ -25,7 +25,7 @@ const Home = () => {
         width={1400}
         src={bg}
         alt=""
-        class="h-svh w-full object-cover fixed top-0 left-0 -z-50"
+        className="h-svh w-full object-cover fixed top-0 left-0 -z-50"
       />
     </main>
   );
