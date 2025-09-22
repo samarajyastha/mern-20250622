@@ -12,12 +12,12 @@ const cartSlice = createSlice({
     addToCart: (state, action) => {
       const product = action.payload;
 
-      const existingProduct = state.products.find(
+      const existingProduct = state.products?.find(
         (item) => item._id == product._id
       );
 
       if (existingProduct) {
-        state.products = state.products.map((item) => {
+        state.products = state.products?.map((item) => {
           if (item._id != product._id) return item;
 
           return {
@@ -26,10 +26,10 @@ const cartSlice = createSlice({
           };
         });
       } else {
-        state.products.push({ ...product, quantity: 1 });
+        state.products?.push({ ...product, quantity: 1 });
       }
 
-      state.totalPrice = state.products.reduce((total, item) => {
+      state.totalPrice = state.products?.reduce((total, item) => {
         total = item.price + state.totalPrice;
 
         return total;

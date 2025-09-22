@@ -49,14 +49,14 @@ const ProductsCart = () => {
             </tr>
           </thead>
           <tbody>
-            {products.length == 0 ? (
+            {products?.length == 0 ? (
               <tr>
                 <td colSpan={6} className="text-center py-2">
                   Cart items empty.
                 </td>
               </tr>
             ) : (
-              products.map((product, index) => (
+              products?.map((product, index) => (
                 <tr
                   key={index}
                   className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"

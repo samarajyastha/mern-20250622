@@ -45,7 +45,7 @@ const Checkout = ({ products, totalPrice }) => {
     <button
       onClick={checkoutOrder}
       className="bg-primary text-sm text-white px-4 py-1 rounded-md hover:bg-primary/90 flex gap-1 items-center disabled:bg-primary/80 disabled:cursor-not-allowed"
-      disabled={loading || products.length === 0}
+      disabled={loading || products?.length === 0}
     >
       Checkout | Rs. {totalPrice}
       {loading && <Spinner className="w-4 h-4 fill-secondary" />}

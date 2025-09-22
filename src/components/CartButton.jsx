@@ -14,7 +14,7 @@ const CartButton = () => {
       onClick={() => router.push(PRODUCTS_CART_ROUTE)}
       className="text-sm relative px-1"
     >
-      <span className="absolute -top-2 -right-2 text-white bg-red-600 text-[0.75rem] rounded-full h-4 w-4">{products.length}</span>
+      <span className="absolute -top-2 -right-2 text-white bg-red-600 text-[0.75rem] rounded-full h-4 w-4">{products?.length}</span>
       <MdOutlineAddShoppingCart />
     </button>
   );

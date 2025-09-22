@@ -6,40 +6,48 @@ import {
   PROFILE_ROUTE,
   USER_MANAGEMENT_ROUTE,
 } from "@/constants/routes";
+import { ADMIN_ROLE, MERCHANT_ROLE, USER_ROLE } from "@/constants/userRoles";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaLuggageCart, FaShoppingBasket, FaUserCog } from "react-icons/fa";
 import { FaChartPie, FaUsers } from "react-icons/fa6";
+import { useSelector } from "react-redux";
 
 const adminMenu = [
   {
     route: DASHBOARD_ROUTE,
     label: "Dashboard",
     icon: <FaChartPie />,
+    allowedRoles: [ADMIN_ROLE, MERCHANT_ROLE, USER_ROLE],
   },
   {
     route: PRODUCT_MANAGEMENT_ROUTE,
     label: "Product Management",
     icon: <FaShoppingBasket />,
+    allowedRoles: [ADMIN_ROLE, MERCHANT_ROLE],
   },
   {
     route: ORDER_MANAGEMENT_ROUTE,
     label: "Order Management",
     icon: <FaLuggageCart />,
+    allowedRoles: [ADMIN_ROLE, MERCHANT_ROLE],
   },
   {
     route: USER_MANAGEMENT_ROUTE,
     label: "User Management",
     icon: <FaUsers />,
+    allowedRoles: [ADMIN_ROLE],
   },
   {
     route: PROFILE_ROUTE,
     label: "Profile",
     icon: <FaUserCog />,
+    allowedRoles: [ADMIN_ROLE, MERCHANT_ROLE, USER_ROLE],
   },
 ];
 
 const Sidebar = () => {
+  const { user } = useSelector((state) => state.auth);
   const pathname = usePathname();
 
   return (
@@ -47,6 +55,9 @@ const Sidebar = () => {
       <div className="p-4 flex flex-col gap-1">
         {adminMenu.map((menu) => {
           const isActive = pathname.startsWith(menu.route);
+
+          if (!user.roles.some((role) => menu.allowedRoles.includes(role)))
+            return null;
 
           return (
             <Link
