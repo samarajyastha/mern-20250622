@@ -1,9 +1,8 @@
 "use client";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { format } from "date-fns";
 import { FaCog } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import { getOrders } from "@/api/orders";
+import { getOrders, getOrdersByMerchant } from "@/api/orders";
 import {
   ORDER_STATUS_CONFIRMED,
   ORDER_STATUS_DELIVERED,
@@ -13,6 +12,8 @@ import {
 import { RxDotFilled } from "react-icons/rx";
 import Action from "./Action";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
+import { ADMIN_ROLE } from "@/constants/userRoles";
 
 const columns = [
   {
@@ -49,12 +50,24 @@ const columns = [
 const OrdersTable = () => {
   const [orders, setOrders] = useState([]);
 
+  const { user } = useSelector((state) => state.auth);
+
+  async function getAllOrders() {
+    try {
+      const response = user.roles.includes(ADMIN_ROLE)
+        ? await getOrders()
+        : await getOrdersByMerchant();
+
+      console.log(response);
+
+      setOrders(response.data);
+    } catch (error) {
+      toast.error(error.response.data, { autoClose: 1500 });
+    }
+  }
+
   useEffect(() => {
-    getOrders()
-      .then((response) => setOrders(response.data))
-      .catch((error) => {
-        toast.error(error.response.data, { autoClose: 1500 });
-      });
+    getAllOrders();
   }, []);
 
   return (
@@ -112,9 +125,8 @@ const OrdersTable = () => {
                       <li key={index} className="flex items-center">
                         <RxDotFilled />
                         <span className="font-medium text-md px-1">
-                          {item.product.name}
+                          {item.name}
                         </span>
-                        ({item.quantity})
                       </li>
                     ))}
                   </ul>

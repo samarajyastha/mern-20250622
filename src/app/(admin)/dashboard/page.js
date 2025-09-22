@@ -1,5 +1,5 @@
 "use client";
-import { getOrders } from "@/api/orders";
+import { getOrders, getOrdersByMerchant, getOrdersByUser } from "@/api/orders";
 import { toast } from "react-toastify";
 import Card from "./_components/Card";
 import { useEffect, useState } from "react";
@@ -11,16 +11,32 @@ import {
   ORDER_STATUS_PENDING,
   ORDER_STATUS_SHIPPED,
 } from "@/constants/orderStatus";
+import { useSelector } from "react-redux";
+import { ADMIN_ROLE, MERCHANT_ROLE } from "@/constants/userRoles";
 
 const Dashboard = () => {
   const [orders, setOrders] = useState([]);
 
+  const { user } = useSelector((state) => state.auth);
+
+  async function getAllOrders() {
+    try {
+      const response = user.roles.includes(ADMIN_ROLE)
+        ? await getOrders()
+        : user.roles.includes(MERCHANT_ROLE)
+        ? await getOrdersByMerchant()
+        : await getOrdersByUser();
+
+      console.log(response);
+
+      setOrders(response.data);
+    } catch (error) {
+      toast.error(error.response.data, { autoClose: 1500 });
+    }
+  }
+
   useEffect(() => {
-    getOrders()
-      .then((response) => setOrders(response.data))
-      .catch((error) => {
-        toast.error(error.response.data, { autoClose: 1500 });
-      });
+    getAllOrders();
   }, []);
 
   return (

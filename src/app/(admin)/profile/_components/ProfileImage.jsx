@@ -56,7 +56,7 @@ const ProfileImage = ({ user }) => {
         <input
           type="file"
           accept=".png,.jpg,.jpeg"
-          className="border border-gray-400 rounded-md px-3 py-1"
+          className="border border-gray-400 rounded-md px-3 py-1 w-full dark:text-white"
           required
           onChange={(e) => {
             const file = e.target.files[0];
@@ -67,7 +67,7 @@ const ProfileImage = ({ user }) => {
 
         <button
           type="submit"
-          className="bg-secondary text-white py-1 px-4 rounded-md w-full md:w-max flex items-center gap-2"
+          className="bg-secondary text-white py-1 px-4 rounded-md w-full md:w-max flex items-center gap-2 whitespace-nowrap"
         >
           Update Image
           {loading && <Spinner className="h-4 w-4 fill-secondary" />}

@@ -6,7 +6,7 @@ import { FaImage } from "react-icons/fa6";
 
 const Card = ({ product }) => {
   return (
-    <div className="rounded-lg shadow-md">
+    <div className="rounded-lg shadow-md dark:bg-gray-900">
       <div className="relative">
         {product.imageUrls.length > 0 ? (
           <Image
@@ -52,13 +52,13 @@ const PopularProducts = async () => {
   const products = response.data;
 
   return (
-    <section id="popular-products" className="py-16 bg-white">
+    <section id="popular-products" className="py-16 bg-white dark:bg-gray-800 dark:text-white">
       <div className="container mx-auto px-4">
         <div className="mb-10">
           <h2 className="text-3xl font-bold text-center mb-4">
             Popular Products
           </h2>
-          <p className="text-gray-600 text-center">
+          <p className="text-gray-600 dark:text-gray-300 text-center">
             Check out the latest and best quality products available in the
             market.
           </p>
