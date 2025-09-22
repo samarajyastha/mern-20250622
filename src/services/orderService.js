@@ -10,19 +10,53 @@ import { PAYMENT_STATUS_COMPLETED } from "../constants/paymenStatuses.js";
 import { ADMIN } from "../constants/roles.js";
 
 const getOrders = async () => {
-  const orders = await Order.find()
-    .sort({ createdAt: -1 })
-    .populate("orderItems.product")
-    .populate("user", ["name", "email", "phone", "address"]);
+  const orders = await Order.aggregate([
+    {
+      $lookup: {
+        from: "products",
+        localField: "orderItems.product",
+        foreignField: "_id",
+        as: "orderItems",
+      },
+    },
+    {
+      $lookup: {
+        from: "users",
+        localField: "user",
+        foreignField: "_id",
+        as: "user",
+      },
+    },
+    {
+      $unwind: "$user",
+    },
+    {
+      $project: {
+        "user.name": 1,
+        "user.email": 1,
+        "user.phone": 1,
+        "user.address": 1,
+        orderNumber: 1,
+        orderItems: 1,
+        status: 1,
+        totalPrice: 1,
+        shippingAddress: 1,
+        createdAt: 1,
+      },
+    },
+  ]);
 
   return orders;
 };
 
 const getOrdersByUser = async (query, userId) => {
-  const orders = await Order.find({
-    status: query?.status || ORDER_STATUS_PENDING,
-    user: userId,
-  })
+  const queryParams = {};
+
+  queryParams.user = userId;
+
+  if (query.status) queryParams.status = query.status;
+
+  const orders = await Order.find(queryParams)
     .sort({ createdAt: -1 })
     .populate("orderItems.product")
     .populate("user", ["name", "email", "phone", "address"])
