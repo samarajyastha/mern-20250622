@@ -22,7 +22,11 @@ connectDB();
 connectCloudinary();
 
 app.use(logger);
-app.use(cors());
+app.use(cors(
+  {
+    origin: process.env.APP_URL
+  }
+));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
